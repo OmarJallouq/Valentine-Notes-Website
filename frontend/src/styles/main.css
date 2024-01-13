@@ -5,12 +5,11 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
-    background-color: var(--secondaryColor);
+    background-color: var(--mainColor);
 }
 
 :root{
-    --mainColor: #FFFFFF;
-    --secondaryColor: #d33b6b;
+    --mainColor: #d33b6b;
     --textColor: #101010;
 
 }
@@ -23,7 +22,7 @@ header{
     justify-content: space-between;
     height: 80px;
     padding: 0 2rem;
-    background-color: var(--mainColor);
+    background-color: #FFFFFF;
     color: var(--textColor);
 }
 
@@ -39,8 +38,12 @@ nav a{
 }
 
 nav a:hover{
-    color: var(--secondaryColor);
+    color: var(--mainColor);
+}
 
+.active {
+    font-weight: 800;
+    color: var(--mainColor);
 }
 
 header .nav-btn{
@@ -72,7 +75,7 @@ header .nav-btn{
         align-items: center;
         justify-content: center;
         gap: 1.5rem;
-        background-color: var(--mainColor);
+        background-color: #FFFFFF;
         transition: 1s;
         transform: translateY(-100vh);
     }

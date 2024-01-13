@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import {FaBars, FaTimes} from 'react-icons/fa';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import '../styles/main.css';
 
 function Nav(){
@@ -12,10 +12,10 @@ function Nav(){
         <header>
             <h3>BAI VALENTINES</h3>
             <nav ref={navRef}>
-                <Link to="/">Home</Link>
-                <Link to="/send-a-message">Send a Message</Link>
-                <Link to="/inbox">Inbox</Link>
-                <Link to="/about">About</Link>
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/send-a-message">Send a Message</NavLink>
+                <NavLink to="/inbox">Inbox</NavLink>
+                <NavLink to="/about">About</NavLink>
                 <button className='nav-btn nav-close-btn' onClick={showNav}>
                     <FaTimes />
                 </button>

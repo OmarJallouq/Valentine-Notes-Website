@@ -5,15 +5,15 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
     // _id: ObjectId
-    name: {type: String},
-    email: {type: String,},
-    password: {type: String,}
+    name: {type: String, required:true},
+    email: {type: String, required:true},
+    password: {type: String, required:true}
 });
 
 const messageSchema = new Schema({
     // _id: ObjectId
-    sender: {type: String, default: "Annonymous"},
-    receiver: {type: Schema.Types.ObjectId, ref:'users', required: true},
+    sender: {type: String, required:true},
+    recipient: {type: Schema.Types.ObjectId, ref:'users', required: true},
     message: {type: String, required: true}
 })
 

@@ -1,0 +1,101 @@
+div{
+    display: block;
+}
+
+.submit_container__Z6puu {
+    width: 689px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.submit_wrap{
+    display: flex;
+}
+.card_div {
+    position: relative;
+    width: 440px;
+    height: 496px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #000;
+}
+.colors_div {
+    display: flex;
+    flex-direction: column;
+}
+
+.color_palette_div:last-child {
+    margin-right: 0;
+}
+
+.color_palette_div {
+    display: flex;
+    flex-wrap: wrap;
+    width: 249px;
+}
+
+.colorItem {
+    cursor: pointer;
+    display: inline-block;
+    width: 52.25px;
+    height: 52.25px;
+    flex: 1 0 52.25px;
+    box-shadow: inset 0 0 0 4px #000;
+    margin: 5px;
+}
+
+.submit_lightScheme__lLwOA {
+    color: #fff;
+}
+.submit_wrapper {
+    display: flex;
+    justify-content: center;
+}
+.messageTA {
+    position: absolute;
+    top: 11.6935%;
+    left: 5%;
+    width: 90.2273% !important;
+    height: 80.0403% !important;
+    max-height: none;
+    max-width: none;
+    resize: none;
+    padding: 18px;
+    font-size: 46px;
+    line-height: 55px;
+}
+
+.recipient_input, .messageTA, .sender_name {
+    outline: 0;
+    border: 0;
+    box-sizing: border-box;
+    background-color: transparent;
+    font-family: arial;
+    letter-spacing: -1px;
+    text-shadow: 0 0 0 #000;
+}
+
+.recipient_div {
+    position: absolute;
+    width: 56.8182%;
+    height: 7.66129%;
+    top: 2.82258%;
+    left: 22.0455%;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    box-sizing: border-box;
+}
+
+.sender_div {
+    position: absolute;
+    width: 56.8182%;
+    height: 7.66129%;
+    top: 89.82258%;
+    left: 5.0455%;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    box-sizing: border-box;
+}
+

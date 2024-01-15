@@ -25,16 +25,19 @@ router.get('/users', async (req, res) => {
 
 router.post('/sendMessage', async (req, res) => {
     const userMessage = req.body.messageInput;
-    const userSender = req.body.senderInput;
-    const userReceiverName = req.body.receiverInput;
-    const userReceiver = Schemas.Users;
-    console.log(`RECIEVER IS: ${userReceiverName}`);
-    const userReceiverId = await userReceiver.findOne({name:userReceiverName}).exec();
+    var userSender = req.body.senderInput;
+    const userRecipientName = req.body.recipientInput;
+    const userRecipient = Schemas.Users;
+    const userRecipientId = await userRecipient.findOne({name:userRecipientName}).exec();
+
+    if (userSender == "") {
+        userSender = "Anonymous";
+    }
 
     const newMessage = new Schemas.Messages({
         message: userMessage,
         sender: userSender,
-        receiver: userReceiverId._id
+        recipient: userRecipientId._id
     })
 
     newMessage.save().then(()=>{

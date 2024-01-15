@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import '../styles/messageBox.css';
+import '../styles/message.css';
 import TemplateBackground from '../styles/template.png';
 
 
@@ -17,19 +17,18 @@ function Message() {
     };
 
     const [cardBackgroundColor, setCardBackgroundColor] = useState('');
+    const [messageBool, setMessage] = useState('');
 
     const ChangeColor = (color) => {
         setCardBackgroundColor(color);
     };
-
+    const handleTextAreaChange = (event) => {
+        setMessage(event.target.value);
+    };
 
     return(
         <section>
             <form id="messagesForm" method="POST" action="/sendMessage">
-                    <div class="input-group justify-content-center">
-                        <input type="submit" value="Send" class="btn btn-primary mb-2" />
-                    </div>
-                <h1>NEXXXXTTTT</h1>
                 <div class="submit_wrapper">
                     <div class="card_div" id ="cardDiv" style={{width: '440px', height: '496px', backgroundColor: `${cardBackgroundColor}`, backgroundImage: `url(${TemplateBackground})`}}>
                     <input type="hidden" id="cardBackgroundColor" name="cardBackgroundColor" value={cardBackgroundColor} />
@@ -42,9 +41,8 @@ function Message() {
                                 </option>
                                 ))}
                             </select>
-                            {/* <input class="recipient_name" name="RecipientName" placeholder="Enter Name" style={{fontSize: '33px', lineHeight: '44px'}}/> */}
                         </div>
-                        <textarea class="messageTA submit_lightScheme__lLwOA" name="messageInput" placeholder="Type Your Message Here..." style={{fontSize: '44px', lineHeight: '52px'}}></textarea>
+                        <textarea class="messageTA submit_lightScheme__lLwOA" name="messageInput" placeholder="Type Your Message Here..." style={{fontSize: '44px', lineHeight: '52px'}} onChange={handleTextAreaChange}></textarea>
                         <div class="sender_div" style={{background: 'transparent'}}>
                             <span class="from_text" style={{fontSize: '33px', lineHeight: '44px', background: 'transparent'}}>From: </span>
                             <input class="sender_name" name="senderInput" placeholder="Enter Name" style={{fontSize: '33px', lineHeight: '44px'}}/>
@@ -87,10 +85,8 @@ function Message() {
                         </div>
                     </div>
                 </div>
+                <input type="submit" value="Send" class="submitBtn" disabled={!messageBool}/>
             </form>
-
-            <script type="module" src="/src/componentsmain.js"></script>
-
         </section>
     );
 }

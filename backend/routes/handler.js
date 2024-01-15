@@ -51,7 +51,7 @@ router.post('/sendMessage', async (req, res) => {
 })
 
 router.get('/addUser', async (req, res) => {
-    const user = {name: 'Sara Macaya', email: 'sara@gmail.com', password: 'Password123'};
+    const user = {name: 'Ghazi Jallouq', email: 'ghazi@gmail.com', password: 'abcd1234'};
     //const newUser = new Schemas.Users(user);
 
     try {
@@ -62,6 +62,6 @@ router.get('/addUser', async (req, res) => {
         console.error(err);
         res.end('User not added!');
       }
-});// TODO: Doesnt work idk why
+});
 
 module.exports = router;

@@ -25,11 +25,11 @@ router.post('/sendMessage', async (req, res) => {
     })
 
     newMessage.save().then(()=>{
-        res.redirect('/sendMessage');
+        res.redirect('/send-a-message');
         res.end();
     }).catch((err)=>{
         console.log(err);
-        res.redirect('/sendMessage');
+        res.redirect('/send-a-message');
         res.end('');
     })
 })

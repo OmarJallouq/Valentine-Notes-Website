@@ -12,16 +12,29 @@ router.get('/inbox', async (req, res) => {
     });
 })
 
+
+router.get('/users', async (req, res) => {
+    const users = Schemas.Users;
+
+    const users1 = await users.find({}).then((userData) => {
+        res.end(JSON.stringify(userData));
+    }).catch((err) =>{
+        res.end(err);
+    });
+})
+
 router.post('/sendMessage', async (req, res) => {
     const userMessage = req.body.messageInput;
-    const userReciever = req.body.recieverInput;
-    const user = Schemas.Users;
-    const userId = await user.findOne({email:"omar.jallouq@studbocconi.it"}).exec();
+    const userSender = req.body.senderInput;
+    const userReceiverName = req.body.receiverInput;
+    const userReceiver = Schemas.Users;
+    console.log(`RECIEVER IS: ${userReceiverName}`);
+    const userReceiverId = await userReceiver.findOne({name:userReceiverName}).exec();
 
     const newMessage = new Schemas.Messages({
         message: userMessage,
-        sender: userId._id,
-        reciever: userReciever
+        sender: userSender,
+        receiver: userReceiverId._id
     })
 
     newMessage.save().then(()=>{

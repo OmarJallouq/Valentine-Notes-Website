@@ -12,8 +12,8 @@ const userSchema = new Schema({
 
 const messageSchema = new Schema({
     // _id: ObjectId
-    sender: {type: Schema.Types.ObjectId, ref:'users'},
-    reciever: {type: String}, //TODO: Make this into a ref to users, and implement everything
+    sender: {type: String, default: "Annonymous"},
+    receiver: {type: Schema.Types.ObjectId, ref:'users', required: true},
     message: {type: String, required: true}
 })
 

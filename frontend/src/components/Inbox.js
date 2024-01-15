@@ -18,9 +18,10 @@ function Inbox() {
             {
             items.map(item => (
                 <div>
-                    <p>{item.reciever}</p>
+                    <p>to: {item.recipient.name}</p>
                     <p>{item.message}</p>
                     <p>from: {item.sender}</p>
+                    <p>~~~~~~~~</p>
                 </div>
             ))
             }

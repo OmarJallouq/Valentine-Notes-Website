@@ -13,7 +13,7 @@ const userSchema = new Schema({
 const messageSchema = new Schema({
     // _id: ObjectId
     sender: {type: String, required:true},
-    recipient: {type: Schema.Types.ObjectId, ref:'users', required: true},
+    recipient: {type: Schema.Types.ObjectId, ref:'users'},
     message: {type: String, required: true},
     color: {type: String, required: true}
 })

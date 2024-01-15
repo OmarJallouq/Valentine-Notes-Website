@@ -5,7 +5,7 @@ const Schemas = require('../models/Schemas');
 router.get('/inbox', async (req, res) => {
     const messages = Schemas.Messages;
 
-    const userMessages = await messages.find({}).populate("user").then((messageData) => {
+    const userMessages = await messages.find({}).populate("recipient").then((messageData) => {
         res.end(JSON.stringify(messageData));
     }).catch((err) =>{
         res.end(err);

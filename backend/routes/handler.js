@@ -25,19 +25,17 @@ router.get('/users', async (req, res) => {
 
 router.post('/sendMessage', async (req, res) => {
     const userMessage = req.body.messageInput;
-    var userSender = req.body.senderInput;
+    var userSender = req.body.senderInput || "Anonymous";
     const userRecipientName = req.body.recipientInput;
     const userRecipient = Schemas.Users;
     const userRecipientId = await userRecipient.findOne({name:userRecipientName}).exec();
-
-    if (userSender == "") {
-        userSender = "Anonymous";
-    }
-
+    const color = req.body.cardBackgroundColor || "rgb(255,255,255)";
+    
     const newMessage = new Schemas.Messages({
         message: userMessage,
         sender: userSender,
-        recipient: userRecipientId._id
+        recipient: userRecipientId._id,
+        color: color
     })
 
     newMessage.save().then(()=>{

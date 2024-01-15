@@ -22,6 +22,7 @@ function Message() {
         setCardBackgroundColor(color);
     };
 
+
     return(
         <section>
             <form id="messagesForm" method="POST" action="/sendMessage">
@@ -30,7 +31,8 @@ function Message() {
                     </div>
                 <h1>NEXXXXTTTT</h1>
                 <div class="submit_wrapper">
-                    <div class="card_div" style={{width: '440px', height: '496px', backgroundColor: `${cardBackgroundColor}`, backgroundImage: `url(${TemplateBackground})`}}>
+                    <div class="card_div" id ="cardDiv" style={{width: '440px', height: '496px', backgroundColor: `${cardBackgroundColor}`, backgroundImage: `url(${TemplateBackground})`}}>
+                    <input type="hidden" id="cardBackgroundColor" name="cardBackgroundColor" value={cardBackgroundColor} />
                         <div class="recipient_div" style={{background: 'transparent'}}>
                             <span class="to_text" style={{fontSize: '24px', lineHeight: '44px', background: 'transparent'}}>To:</span>
                             <select class="recipient_input" name="recipientInput" style={{fontSize: '24px', lineHeight: '44px', background:'transparent'}}>

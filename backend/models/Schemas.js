@@ -14,7 +14,8 @@ const messageSchema = new Schema({
     // _id: ObjectId
     sender: {type: String, required:true},
     recipient: {type: Schema.Types.ObjectId, ref:'users', required: true},
-    message: {type: String, required: true}
+    message: {type: String, required: true},
+    color: {type: String, required: true}
 })
 
 const Users = mongoose.model('users', userSchema, 'users');

@@ -45,7 +45,7 @@ function Message() {
                         <textarea class="messageTA submit_lightScheme__lLwOA" name="messageInput" placeholder="Type Your Message Here..." style={{fontSize: '44px', lineHeight: '52px'}} onChange={handleTextAreaChange}></textarea>
                         <div class="sender_div" style={{background: 'transparent'}}>
                             <span class="from_text" style={{fontSize: '33px', lineHeight: '44px', background: 'transparent'}}>From: </span>
-                            <input class="sender_name" name="senderInput" placeholder="Enter Name" style={{fontSize: '33px', lineHeight: '44px'}}/>
+                            <input class="sender_name" name="senderInput" placeholder="Enter Name" style={{fontSize: '33px', lineHeight: '44px', paddingLeft: '6px'}}/>
                         </div>
                     </div>
                     <div class="colors_div">

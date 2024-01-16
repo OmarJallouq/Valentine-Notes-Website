@@ -15,7 +15,6 @@ function Nav(){
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/send-a-message">Send a Message</NavLink>
                 <NavLink to="/inbox">Inbox</NavLink>
-                <NavLink to="/about">About</NavLink>
                 <button className='nav-btn nav-close-btn' onClick={showNav}>
                     <FaTimes />
                 </button>

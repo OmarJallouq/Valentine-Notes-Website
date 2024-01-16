@@ -18,13 +18,29 @@ function Inbox() {
       setItems(items);
     };
   
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      const newFilteredItems = items.filter(
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const newFilteredItems = items.filter(
         (item) =>
-          item.recipient.email === emailFilter && item.recipient.password === passwordFilter
-      );
-      setFilteredItems(newFilteredItems);
+            item.recipient.email === emailFilter && item.recipient.password === passwordFilter
+        );
+        setFilteredItems(newFilteredItems);
+
+        if (newFilteredItems.length > 0){
+            document.getElementById("err").hidden = true;
+        }
+        else {
+            document.getElementById("err").hidden = false;
+        if (!emailFilter){
+            document.getElementById("err").innerHTML = "Please enter an email";
+        }
+        else if(!passwordFilter){
+            document.getElementById("err").innerHTML = "Please enter a passwod";
+        }
+        else {
+            document.getElementById("err").innerHTML = "Invalid Credentials";
+        }
+        }
     };
 
     return(
@@ -58,6 +74,7 @@ function Inbox() {
                     </div>
                 ))
                 }
+                <h3 id="err" hidden='true'>Incorrect Email or Password</h3>
             </div>
         </section>
     );

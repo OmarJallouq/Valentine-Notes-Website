@@ -3,4 +3,16 @@ from = "/*"
 to = "/index.html"
 status = 200
 
+from = "/index"
+to = "https://bai-valentines.onrender.com/index"
+status = 200
 
+from = "/users"
+to = "https://bai-valentines.onrender.com/users"
+status = 200
+
+from = "/sendMessage"
+to = "https://bai-valentines.onrender.com/sendMessage"
+
+from = "/addUser"
+to = "https://bai-valentines.onrender.com/addUser"

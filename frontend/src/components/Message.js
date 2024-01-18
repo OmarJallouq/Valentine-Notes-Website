@@ -11,7 +11,7 @@ function Message() {
     const [items, setItems] = useState([]);
 
     const fetchItems = async () => {
-        const data = await fetch('/api/users');
+        const data = await fetch('/users');
         const items = await data.json();
         setItems(items);
     };

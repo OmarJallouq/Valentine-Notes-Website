@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Schemas = require('../models/Schemas');
 
-router.get('/inbox', async (req, res) => {
+router.get('https://bai-valentines.onrender.com/inbox', async (req, res) => {
     const messages = Schemas.Messages;
 
     const userMessages = await messages.find({}).populate("recipient").then((messageData) => {
@@ -13,7 +13,7 @@ router.get('/inbox', async (req, res) => {
 })
 
 
-router.get('/users', async (req, res) => {
+router.get('https://bai-valentines.onrender.com/users', async (req, res) => {
     const users = Schemas.Users;
 
     const users1 = await users.find({}).then((userData) => {
@@ -23,7 +23,7 @@ router.get('/users', async (req, res) => {
     });
 })
 
-router.post('/sendMessage', async (req, res) => {
+router.post('https://bai-valentines.onrender.com/sendMessage', async (req, res) => {
     const userMessage = req.body.messageInput;
     var userSender = req.body.senderInput || "Anonymous";
     const userRecipientName = req.body.recipientInput;
@@ -48,7 +48,7 @@ router.post('/sendMessage', async (req, res) => {
     })
 })
 
-router.get('/addUser', async (req, res) => {
+router.get('https://bai-valentines.onrender.com/addUser', async (req, res) => {
     const user = {name: 'Ghazi Jallouq', email: 'ghazi@gmail.com', password: 'abcd1234'};
     //const newUser = new Schemas.Users(user);
 

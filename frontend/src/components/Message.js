@@ -11,7 +11,7 @@ function Message() {
     const [items, setItems] = useState([]);
 
     const fetchItems = async () => {
-        const data = await fetch('https://bai-valentines.onrender.com/users');
+        const data = await fetch('/api/users');
         const items = await data.json();
         setItems(items);
     };

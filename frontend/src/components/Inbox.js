@@ -13,7 +13,7 @@ function Inbox() {
     }, []);
   
     const fetchItems = async () => {
-      const data = await fetch('https://bai-valentines.onrender.com/inbox');
+      const data = await fetch('/api/inbox');
       const items = await data.json();
       setItems(items);
     };

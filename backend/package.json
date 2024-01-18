@@ -9,7 +9,7 @@
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "build": "npm i"
   },
-  "proxy": "http://localhost:4000",
+  "proxy": "https://bai-valentines.onrender.com",
   "keywords": [],
   "author": "",
   "license": "ISC",

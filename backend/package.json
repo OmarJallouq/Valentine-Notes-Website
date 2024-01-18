@@ -9,7 +9,6 @@
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "build": "npm i"
   },
-  "proxy": "https://bai-valentines.onrender.com",
   "keywords": [],
   "author": "",
   "license": "ISC",

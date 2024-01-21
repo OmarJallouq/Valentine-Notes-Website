@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import '../styles/message.css';
 import TemplateBackground from '../styles/template.png';
-import fetchData from '../services/api';
+import {fetchData} from '../services/api';
 
 
 function Message() {

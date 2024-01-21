@@ -32,7 +32,7 @@ function Message() {
 
     return(
         <section>
-            <form id="messagesForm" method="POST" action="/sendMessage">
+            <form id="messagesForm" method="POST" action="/api/sendMessage">
                 <div class="submit_wrapper">
                     <div class="card_div" id ="cardDiv" style={{width: '440px', height: '496px', backgroundColor: `${cardBackgroundColor}`, backgroundImage: `url(${TemplateBackground})`}}>
                     <input type="hidden" id="cardBackgroundColor" name="cardBackgroundColor" value={cardBackgroundColor} />

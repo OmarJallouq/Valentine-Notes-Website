@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import {FaBars, FaTimes} from 'react-icons/fa';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
 import '../styles/nav.css';
 
 function Nav(){
@@ -10,7 +10,9 @@ function Nav(){
     }
     return(
         <header>
-            <h3>BAI VALENTINES</h3>
+            <h3>
+                <Link to="/" style={{textDecoration: 'none', color: 'inherit', background: 'transparent'}}>BAI Valentines</Link>
+            </h3>
             <nav ref={navRef}>
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/send-a-message">Send a Message</NavLink>

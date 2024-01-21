@@ -1,22 +1,4 @@
 [[redirects]]
-from = "/*"
-to = "/index.html"
+from = "/api/*"
+to = "https://bai-valentines.onrender.com/:splat"
 status = 200
-
-[[redirects]]
-from = "/inbox"
-to = "https://bai-valentines.onrender.com/index"
-status = 200
-
-[[redirects]]
-from = "/users"
-to = "https://bai-valentines.onrender.com/users"
-status = 200
-
-[[redirects]]
-from = "/sendMessage"
-to = "https://bai-valentines.onrender.com/sendMessage"
-
-[[redirects]]
-from = "/addUser"
-to = "https://bai-valentines.onrender.com/addUser"

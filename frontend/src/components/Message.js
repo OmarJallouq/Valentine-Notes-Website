@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import '../styles/message.css';
 import TemplateBackground from '../styles/template.png';
-import {fetchData} from '../services/api';
 
 
 function Message() {
@@ -13,7 +12,8 @@ function Message() {
 
     const fetchItems = async () => {
         try {
-            const data = await fetchData('users');
+            const response = await fetch('/api/users');
+            const data = await response.json();
             setItems(data);
         } catch (error) {
             console.error('Error fetching data:', error);

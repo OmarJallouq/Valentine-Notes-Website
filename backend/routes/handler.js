@@ -49,7 +49,7 @@ router.post('/sendMessage', async (req, res) => {
 })
 
 router.get('/addUser', async (req, res) => {
-    const user = {name: 'Ghazi Jallouq', email: 'ghazi@gmail.com', password: 'abcd1234'};
+    const user = {name: 'Laith Bulbul', email: 'laith@gmail.com', password: 'abcd1234'};
     //const newUser = new Schemas.Users(user);
 
     try {

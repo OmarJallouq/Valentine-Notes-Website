@@ -2,3 +2,8 @@
 from = "/api/*"
 to = "https://bai-valentines.onrender.com/:splat"
 status = 200
+
+[[redirects]]
+from = "/*"
+to = "https://silly-capybara-c6ad54.netlify.app/:splat"
+status = 200

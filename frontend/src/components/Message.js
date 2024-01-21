@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import '../styles/message.css';
 import TemplateBackground from '../styles/template.png';
+import fetchData from '../services/api';
 
 
 function Message() {
@@ -11,9 +12,12 @@ function Message() {
     const [items, setItems] = useState([]);
 
     const fetchItems = async () => {
-        const data = await fetch('/users');
-        const items = await data.json();
-        setItems(items);
+        try {
+            const data = await fetchData('users');
+            setItems(data);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
     };
 
     const [cardBackgroundColor, setCardBackgroundColor] = useState('');

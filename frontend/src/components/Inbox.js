@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import TemplateBackground from '../styles/template.png';
 import '../styles/inbox.css';
+import { fetchData } from '../services/api';
 
 function Inbox() {
     const [items, setItems] = useState([]);
@@ -13,9 +14,12 @@ function Inbox() {
     }, []);
   
     const fetchItems = async () => {
-      const data = await fetch('/inbox');
-      const items = await data.json();
-      setItems(items);
+      try {
+        const data = await fetchData('inbox');
+        setItems(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     };
   
     const handleSubmit = async (e) => {

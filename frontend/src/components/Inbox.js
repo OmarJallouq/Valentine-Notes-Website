@@ -38,15 +38,15 @@ function Inbox() {
         }
         else {
             document.getElementById("err").hidden = false;
-        if (!emailFilter){
-            document.getElementById("err").innerHTML = "Please enter an email";
-        }
-        else if(!passwordFilter){
-            document.getElementById("err").innerHTML = "Please enter a passwod";
-        }
-        else {
-            document.getElementById("err").innerHTML = "Invalid Credentials";
-        }
+            if (!emailFilter){
+                document.getElementById("err").innerHTML = "Please enter an email";
+            }
+            else if(!passwordFilter){
+                document.getElementById("err").innerHTML = "Please enter a passwod";
+            }
+            else {
+                document.getElementById("err").innerHTML = "Invalid Credentials";
+            }
         }
     };
 

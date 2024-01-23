@@ -34,7 +34,7 @@ function Inbox() {
         }
 
         if (newFilteredItems.length > 0){
-            document.getElementById("err").hidden = true;
+            document.getElementById("err").innerHTML = "";
         }
         else {
             document.getElementById("err").hidden = false;

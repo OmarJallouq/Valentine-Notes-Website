@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import TemplateBackground from '../styles/template.png';
 import '../styles/inbox.css';
-import '../styles/message.css';
 
 function Inbox() {
     const [items, setItems] = useState([]);

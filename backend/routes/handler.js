@@ -30,7 +30,7 @@ router.post('/sendMessage', async (req, res) => {
     const userRecipient = Schemas.Users;
     const userRecipientId = await userRecipient.findOne({name:userRecipientName}).exec();
     const BGcolor = req.body.cardBackgroundColor || "rgb(255,255,255)";
-    const TextColor = req.body.textColor;
+    const TextColor = req.body.textColor || "#fff";
     
     const newMessage = new Schemas.Messages({
         message: userMessage,

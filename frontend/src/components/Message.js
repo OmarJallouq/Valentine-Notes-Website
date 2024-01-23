@@ -44,7 +44,6 @@ function Message() {
     
       const ChangeColor = async (color) => {
         setCardBackgroundColor(color);
-        await ChangeTextColor();
       };
       
     
@@ -59,8 +58,6 @@ function Message() {
             // Set the character error state to false
             setMessageCharacterError(false);
         }
-
-        ChangeTextColor();
     };
 
       const handleSenderChange = (event) => {

@@ -49,21 +49,7 @@ function Inbox() {
             }
         }
     };
-    
-    const getBrightness = (color) => {
-        const rgb = color.match(/\d+/g);
-        if (rgb) {
-          const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
-          return brightness;
-        }
-        return 0;
-    };
 
-    const determineTextColorClass = (color) => {
-        const brightness = getBrightness(color);
-        return brightness < 130 ? 'text_white' : 'text_black';
-    };
-    
     return(
         <section>
             <form onSubmit={handleSubmit}>
@@ -87,7 +73,7 @@ function Inbox() {
                             <span class="to_text" style={{fontSize: '24px', lineHeight: '44px', background: 'transparent'}}>To:</span>
                             <input class="recipient_input" name="recipientInput" style={{fontSize: '24px', lineHeight: '44px', background:'transparent', paddingLeft: '6px'}} value={item.recipient.name}/>
                         </div>
-                        <textarea class={`messageTa ${determineTextColorClass(item.color)}`} name="messageInput" placeholder="Type Your Message Here..." style={{fontSize: '44px', lineHeight: '52px'}} value={item.message}></textarea>
+                        <textarea class="messageTA submit_lightScheme__lLwOA" name="messageInput" placeholder="Type Your Message Here..." style={{fontSize: '44px', lineHeight: '52px'}} value={item.message}></textarea>
                         <div class="sender_div" style={{background: 'transparent'}}>
                             <span class="from_text" style={{fontSize: '33px', lineHeight: '44px', background: 'transparent'}}>From: </span>
                             <input class="sender_name" name="senderInput" placeholder="Enter Name" style={{fontSize: '33px', lineHeight: '44px', paddingLeft: '6px'}} value={item.sender}/>

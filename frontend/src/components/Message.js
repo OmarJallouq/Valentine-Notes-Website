@@ -16,8 +16,8 @@ function Message() {
         };
 
         const isDarkBackground = getBrightness(cardBackgroundColor) < 130; 
-        const bool = isDarkBackground ? 'submit_lightScheme' : 'submit_darkScheme';
-        setTextClass(bool);
+        const Textcolor = isDarkBackground ? '#fff' : '#000';
+        setTextColor(Textcolor);
     }, [cardBackgroundColor]);
 
     useEffect(() => {
@@ -30,7 +30,7 @@ function Message() {
       const [sender, setSender] = useState('');
       const [messageCharacterError, setMessageCharacterError] = useState(false);
       const [senderCharacterError, setSenderCharacterError] = useState(false);
-      const [textClass, setTextClass] = useState(false);
+      const [textColor, setTextColor] = useState(false);
 
       const fetchItems = async () => {
         try {
@@ -129,7 +129,7 @@ function Message() {
                                     ))}
                                 </select>
                             </div>
-                            <textarea class={`messageTA ${textClass}`} name="messageInput" placeholder="Type Your Message Here..." style={{overflow: 'hidden', fontWeight: 'bold', fontSize: '44px', lineHeight: '52px'}} onChange={handleTextAreaChange} value={message}></textarea>
+                            <textarea class={`messageTA`} name="messageInput" placeholder="Type Your Message Here..." style={{overflow: 'hidden', fontWeight: 'bold', fontSize: '44px', lineHeight: '52px', color: `${textColor}`}} onChange={handleTextAreaChange} value={message}></textarea>
                             <div class="sender_div" style={{background: 'transparent'}}>
                                 <span class="from_text" style={{fontSize: '33px', lineHeight: '44px', background: 'transparent'}} value={sender}>From: </span>
                                 <input class="sender_name" name="senderInput" placeholder="Enter Name" style={{fontSize: '33px', lineHeight: '44px', paddingLeft: '6px'}} onChange={handleSenderChange}/>

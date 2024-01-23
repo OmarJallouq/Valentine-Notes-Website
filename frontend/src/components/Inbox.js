@@ -33,7 +33,7 @@ function Inbox() {
             setFilteredItems(items);
         }
 
-        if (newFilteredItems.length > 0){
+        if (filteredItems.length > 0){
             document.getElementById("err").innerHTML = "";
         }
         else {

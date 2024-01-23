@@ -44,9 +44,14 @@ div{
     margin: 5px;
 }
 
-.submit_lightScheme__lLwOA {
+.submit_lightScheme {
     color: #fff;
 }
+
+.submit_darkScheme {
+    color: #000;
+}
+
 .submit_wrapper {
     display: flex;
     justify-content: center;

@@ -1,22 +1,37 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useCallback} from 'react';
 import '../styles/message.css';
 import TemplateBackground from '../styles/template.png';
 
 
 function Message() {
+    const [cardBackgroundColor, setCardBackgroundColor] = useState('');
+    const ChangeTextColor = useCallback(async () => {
+        const getBrightness = (color) => {
+            const rgb = color.match(/\d+/g);
+            if (rgb) {
+                const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
+                return brightness;
+            }
+            return 0;
+        };
+
+        const isDarkBackground = getBrightness(cardBackgroundColor) < 130; 
+        const bool = isDarkBackground ? 'submit_lightScheme' : 'submit_darkScheme';
+        setTextClass(bool);
+    }, [cardBackgroundColor]);
+
     useEffect(() => {
         fetchItems();
-      }, []);
+        ChangeTextColor();
+      }, [cardBackgroundColor, ChangeTextColor]);
     
       const [items, setItems] = useState([]);
-      const [cardBackgroundColor, setCardBackgroundColor] = useState('');
       const [message, setMessage] = useState('');
       const [sender, setSender] = useState('');
       const [messageCharacterError, setMessageCharacterError] = useState(false);
       const [senderCharacterError, setSenderCharacterError] = useState(false);
+      const [textClass, setTextClass] = useState(false);
 
-
-    
       const fetchItems = async () => {
         try {
           const response = await fetch('/api/users');
@@ -27,9 +42,11 @@ function Message() {
         }
       };
     
-      const ChangeColor = (color) => {
+      const ChangeColor = async (color) => {
         setCardBackgroundColor(color);
+        await ChangeTextColor();
       };
+      
     
       const handleTextAreaChange = (event) => {
         const newMessage = event.target.value;
@@ -42,7 +59,9 @@ function Message() {
             // Set the character error state to false
             setMessageCharacterError(false);
         }
-      };
+
+        ChangeTextColor();
+    };
 
       const handleSenderChange = (event) => {
         const newSender = event.target.value;
@@ -110,7 +129,7 @@ function Message() {
                                     ))}
                                 </select>
                             </div>
-                            <textarea class="messageTA submit_lightScheme__lLwOA" name="messageInput" placeholder="Type Your Message Here..." style={{overflow: 'hidden', fontWeight: 'bold', fontSize: '44px', lineHeight: '52px'}} onChange={handleTextAreaChange} value={message}></textarea>
+                            <textarea class={`messageTA ${textClass}`} name="messageInput" placeholder="Type Your Message Here..." style={{overflow: 'hidden', fontWeight: 'bold', fontSize: '44px', lineHeight: '52px'}} onChange={handleTextAreaChange} value={message}></textarea>
                             <div class="sender_div" style={{background: 'transparent'}}>
                                 <span class="from_text" style={{fontSize: '33px', lineHeight: '44px', background: 'transparent'}} value={sender}>From: </span>
                                 <input class="sender_name" name="senderInput" placeholder="Enter Name" style={{fontSize: '33px', lineHeight: '44px', paddingLeft: '6px'}} onChange={handleSenderChange}/>

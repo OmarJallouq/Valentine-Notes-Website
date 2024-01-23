@@ -1,5 +1,5 @@
 // frontend/src/services/api.js
-const apiUrl = process.env.BACKEND_URL || 'https://bai-valentines.onrender.com';
+const apiUrl = process.env.BACKEND_URL;
 
 export const fetchData = async (endpoint) => {
   const response = await fetch(`${apiUrl}/${endpoint}`);

@@ -4,6 +4,7 @@ import '../styles/inbox.css';
 
 function Inbox() {
     const [items, setItems] = useState([]);
+    const [users, setUsers] = useState([]);
     const [filteredItems, setFilteredItems] = useState([]);
     const [emailFilter, setEmailFilter] = useState('');
     const [passwordFilter, setPasswordFilter] = useState('');
@@ -20,6 +21,14 @@ function Inbox() {
       } catch (error) {
         console.error('Error fetching data:', error);
       }
+
+      try {
+        const response = await fetch('/api/users');
+        const data = await response.json();
+        setUsers(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     };
   
     const handleSubmit = async (e) => {
@@ -33,7 +42,12 @@ function Inbox() {
             setFilteredItems(items);
         }
 
-        if (filteredItems.length > 0){
+        const userSelected = users.filter(
+            (user) =>
+                user.email === emailFilter && user.password === passwordFilter
+        );
+
+        if (userSelected.length > 0){
             document.getElementById("err").innerHTML = "";
         }
         else {

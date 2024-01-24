@@ -22,7 +22,7 @@ function Home() {
 
     return(
         <section>
-            <img src={lettersPicture} alt='Letters'></img>
+            <img src={lettersPicture} alt='Letters' style={{zIndex: '0'}}></img>
             <div style={{width: '100%', height: '100%', position: 'relative', top: '120px'}}>
                 <div style={{width: 839, height: 134, left: -20, top: 0, position: 'absolute', background: 'white', borderRadius: 20}} />
                 <div style={{left: 31, top: 25, position: 'absolute', color: 'black', fontSize: 64, fontFamily: 'Jacques Francois Shadow', fontWeight: '400', wordWrap: 'break-word', backgroundColor: 'transparent'}}>CUPID’S IN THE AIR</div>

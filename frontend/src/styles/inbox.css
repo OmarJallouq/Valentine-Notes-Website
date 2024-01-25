@@ -1,38 +1,7 @@
-/* #loginForm {
-    display: flex;
-    flex-direction: row;
-    max-width: 300px;
-    margin: auto;
-    justify-content: center;
-}
-
-#loginForm div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-#loginForm label {
-    margin-right: 10px;
-}
-
-#loginForm input {
-    flex: 1;
-    padding: 8px;
-    box-sizing: border-box;
-    margin-right: 10px;
-}
-
-#loginForm button {
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    margin-top: 10px;
-} */
 .form {
     display: flex;
     justify-content: center;
+    padding: 18px;
 }
 .wrapper {
     --input-focus: #2d8cf0;

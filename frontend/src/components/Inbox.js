@@ -8,6 +8,7 @@ function Inbox() {
     const [filteredItems, setFilteredItems] = useState([]);
     const [emailFilter, setEmailFilter] = useState('');
     const [passwordFilter, setPasswordFilter] = useState('');
+    const VALENTINESDAY = false;
   
     useEffect(() => {
       fetchItems();
@@ -37,7 +38,9 @@ function Inbox() {
         (item) =>
             item.recipient.email === emailFilter && item.recipient.password === passwordFilter
         );
-        setFilteredItems(newFilteredItems);
+        if(VALENTINESDAY){
+            setFilteredItems(newFilteredItems);
+        }
         if (emailFilter === "admin" && passwordFilter === "Admin_123"){
             setFilteredItems(items);
         }

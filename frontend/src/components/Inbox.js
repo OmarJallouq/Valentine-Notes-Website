@@ -66,18 +66,17 @@ function Inbox() {
 
     return(
         <section>
-            <form onSubmit={handleSubmit}>
-                <div id="loginForm">
+            <form class="form" onSubmit={handleSubmit}>
+                <div class="wrapper">
+                    <div class="title">Welcome,<br/><span>Enter credentials to continue</span></div>
                     <div>
-                        <label>Email:</label>
-                        <input type="text" name="emailInput" placeholder="Put your email here" onChange={(e) => setEmailFilter(e.target.value)}/>
+                        <input class="input" type="text" name="emailInput" placeholder="Put your email here" onChange={(e) => setEmailFilter(e.target.value)}/>
                     </div>
                     <div>
-                        <label>Password:</label>
-                        <input type="password" name="passwordInput" placeholder="Put your password here" onChange={(e) => setPasswordFilter(e.target.value)}/>
+                        <input class="input" type="password" name="passwordInput" placeholder="Put your password here" onChange={(e) => setPasswordFilter(e.target.value)}/>
                     </div>
+                    <button class="button-confirm" type="submit">Submit</button>
                 </div>
-                <button type="submit">Submit</button>
             </form>
             <div class="cards">
                 {

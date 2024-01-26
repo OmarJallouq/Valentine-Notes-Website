@@ -67,7 +67,7 @@ router.post('/addUser', async (req, res) => {
     //     res.end('');
     // })
     try {
-        const newUser = new Schemas.Users.create(user);       
+        const newUser = new Schemas.Users(user);       
         await newUser.save(); 
         console.log('New user created!');
         res.end('New user created!');

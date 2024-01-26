@@ -50,7 +50,7 @@ router.post('/sendMessage', async (req, res) => {
     })
 })
 
-router.get('/addUser', async (req, res) => {
+router.post('/addUser', async (req, res) => {
     const passwordInput = (Math.floor(100000 + Math.random() * 900000)).toString();
     const emailInput = req.body.email;
     const nameInput = req.body.name;
@@ -61,11 +61,11 @@ router.get('/addUser', async (req, res) => {
     const newUser = new Schemas.Users(user);
 
     newUser.save().then(()=>{
-        res.redirect('/AddUser');
+        res.redirect('/addUser');
         res.end();
     }).catch((err)=>{
         console.log(err);
-        res.redirect('/AddUser');
+        res.redirect('/addUser');
         res.end('');
     })
     // try {

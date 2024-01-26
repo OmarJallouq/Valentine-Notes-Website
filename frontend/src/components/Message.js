@@ -23,31 +23,31 @@ function Message() {
     useEffect(() => {
         fetchItems();
         ChangeTextColor();
-      }, [cardBackgroundColor, ChangeTextColor]);
+    }, [cardBackgroundColor, ChangeTextColor]);
     
-      const [items, setItems] = useState([]);
-      const [message, setMessage] = useState('');
-      const [sender, setSender] = useState('');
-      const [messageCharacterError, setMessageCharacterError] = useState(false);
-      const [senderCharacterError, setSenderCharacterError] = useState(false);
-      const [textColor, setTextColor] = useState(false);
+    const [items, setItems] = useState([]);
+    const [message, setMessage] = useState('');
+    const [sender, setSender] = useState('');
+    const [messageCharacterError, setMessageCharacterError] = useState(false);
+    const [senderCharacterError, setSenderCharacterError] = useState(false);
+    const [textColor, setTextColor] = useState(false);
 
-      const fetchItems = async () => {
+    const fetchItems = async () => {
         try {
-          const response = await fetch('/api/users');
-          const data = await response.json();
-          setItems(data);
+            const response = await fetch('/api/users');
+            const data = await response.json();
+            setItems(data);
         } catch (error) {
-          console.error('Error fetching data:', error);
+            console.error('Error fetching data:', error);
         }
-      };
+    };
     
-      const ChangeColor = async (color) => {
+    const ChangeColor = async (color) => {
         setCardBackgroundColor(color);
-      };
+    };
       
     
-      const handleTextAreaChange = (event) => {
+    const handleTextAreaChange = (event) => {
         const newMessage = event.target.value;
         setMessage(newMessage);
 
@@ -60,28 +60,25 @@ function Message() {
         }
     };
 
-      const handleSenderChange = (event) => {
+    const handleSenderChange = (event) => {
         const newSender = event.target.value;
-    
-        if (newSender.length > 20) {
-          setSenderCharacterError(true);
-        } else {
-          setSenderCharacterError(false);
-        }
-    
-        setSender(newSender);
-      };
 
-      const handleSubmit = (event) => {
-        if (messageCharacterError || senderCharacterError) {
-          event.preventDefault();
-          // Optionally, you can display an error message to the user
-          alert('There were errors with your submission. Please check the form.');
+        if (newSender.length > 20) {
+            setSenderCharacterError(true);
         } else {
-          // Continue with form submission logic
-          // Your existing logic here
+            setSenderCharacterError(false);
         }
-      };
+
+        setSender(newSender);
+    };
+
+    const handleSubmit = (event) => {
+        if (messageCharacterError || senderCharacterError) {
+            event.preventDefault();
+            // Optionally, you can display an error message to the user
+            alert('There were errors with your submission. Please check the form.');
+        }
+    };
 
     return(
         <section>

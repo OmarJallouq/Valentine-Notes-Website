@@ -71,11 +71,9 @@ router.post('/addUser', async (req, res) => {
         await newUser.save(); 
         console.log('New user created!');
         res.end('New user created!');
-        res.redirect('/addUser');
       } catch (err) {
         console.error(err);
         res.end('User not added!');
-        res.redirect('/addUser');
       }
 });
 

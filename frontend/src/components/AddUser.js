@@ -83,11 +83,11 @@ function AddUser() {
             <form class="form" method="POST" action="/api/addUser" onSubmit={handleSubmit}>
                 <div>
                     <label>Name:</label>
-                    <input placeholder='Firstname Lastname' onChange={handleNameChange}></input>
+                    <input name="name" placeholder='Firstname Lastname' onChange={handleNameChange}></input>
                 </div>
                 <div>
                     <label>Email:</label>
-                    <input placeholder='Email' onChange={handleEmailChange}></input>
+                    <input name="email" placeholder='Email' onChange={handleEmailChange}></input>
                 </div>
                 <input type="submit" value="Send" disabled={!name.trim() || !email.trim()}/>
             </form>

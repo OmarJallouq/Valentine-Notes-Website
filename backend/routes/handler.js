@@ -51,7 +51,11 @@ router.post('/sendMessage', async (req, res) => {
 })
 
 router.get('/addUser', async (req, res) => {
-    const user = {name: 'Velina Todorova', email: 'velinatodorovaaa@gmail.com', password: ''};
+    const passwordInput = (Math.floor(100000 + Math.random() * 900000)).toString();
+    const emailInput = req.body.email;
+    const nameInput = req.body.name;
+
+    const user = {name: nameInput, email: emailInput, password: passwordInput};
     //const newUser = new Schemas.Users(user);
 
     try {

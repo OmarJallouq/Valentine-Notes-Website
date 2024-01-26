@@ -80,7 +80,7 @@ function AddUser() {
 
     return(
         <section>
-            <form class="form" onSubmit={handleSubmit}>
+            <form class="form" method="POST" action="/api/addUser" onSubmit={handleSubmit}>
                 <div>
                     <label>Name:</label>
                     <input placeholder='Firstname Lastname' onChange={handleNameChange}></input>

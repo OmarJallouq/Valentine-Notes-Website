@@ -62,8 +62,8 @@ function AddUser() {
             alert('There were errors with your submission. Please check the form.');
         }
 
-        const isNameUnique = !users.some(user => user.name === name);
-        const isEmailUnique = !users.some(user => user.email === email);
+        const isNameUnique = !users.some(user => user.name.toLowerCase() === name.toLowerCase());
+        const isEmailUnique = !users.some(user => user.email.toLowerCase() === email.toLowerCase());
 
         if (!isNameUnique) {
             // Display an error message for duplicate name

@@ -58,14 +58,24 @@ router.get('/addUser', async (req, res) => {
     const user = {name: nameInput, email: emailInput, password: passwordInput};
     //const newUser = new Schemas.Users(user);
 
-    try {
-        const newUser = await Schemas.Users.create(user);        
-        console.log('New user created!');
-        res.end('New user created!');
-      } catch (err) {
-        console.error(err);
-        res.end('User not added!');
-      }
+    const newUser = new Schemas.Users(user);
+
+    newUser.save().then(()=>{
+        res.redirect('/AddUser');
+        res.end();
+    }).catch((err)=>{
+        console.log(err);
+        res.redirect('/AddUser');
+        res.end('');
+    })
+    // try {
+    //     const newUser = await Schemas.Users.create(user);        
+    //     console.log('New user created!');
+    //     res.end('New user created!');
+    //   } catch (err) {
+    //     console.error(err);
+    //     res.end('User not added!');
+    //   }
 });
 
 module.exports = router;

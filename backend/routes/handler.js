@@ -56,26 +56,27 @@ router.post('/addUser', async (req, res) => {
     const nameInput = req.body.name;
 
     const user = {name: nameInput, email: emailInput, password: passwordInput};
-    //const newUser = new Schemas.Users(user);
+    //const user = {name: 'nameexample', email: 'emailexample', password: 'passwordexample'};
 
-    const newUser = new Schemas.Users(user);
-
-    newUser.save().then(()=>{
+    // newUser.save().then(()=>{
+    //     res.redirect('/addUser');
+    //     res.end();
+    // }).catch((err)=>{
+    //     console.log(err);
+    //     res.redirect('/addUser');
+    //     res.end('');
+    // })
+    try {
+        const newUser = new Schemas.Users.create(user);       
+        await newUser.save(); 
+        console.log('New user created!');
+        res.end('New user created!');
         res.redirect('/addUser');
-        res.end();
-    }).catch((err)=>{
-        console.log(err);
+      } catch (err) {
+        console.error(err);
+        res.end('User not added!');
         res.redirect('/addUser');
-        res.end('');
-    })
-    // try {
-    //     const newUser = await Schemas.Users.create(user);        
-    //     console.log('New user created!');
-    //     res.end('New user created!');
-    //   } catch (err) {
-    //     console.error(err);
-    //     res.end('User not added!');
-    //   }
+      }
 });
 
 module.exports = router;

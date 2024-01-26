@@ -67,11 +67,13 @@ function AddUser() {
 
         if (!isNameUnique) {
             // Display an error message for duplicate name
+            event.preventDefault();
             alert('User with this name already exists.');
             return;
         }
 
         if (!isEmailUnique) {
+            event.preventDefault();
             // Display an error message for duplicate email
             alert('User with this email already exists.');
             return;

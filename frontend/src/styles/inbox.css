@@ -1,7 +1,8 @@
 .form {
     display: flex;
-    justify-content: center;
     padding: 18px;
+    justify-content: center;
+    align-items: center;
 }
 .wrapper {
     --input-focus: #2d8cf0;
@@ -15,6 +16,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin: auto;
     justify-content: center;
     gap: 20px;
     border-radius: 5px;

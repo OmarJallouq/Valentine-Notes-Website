@@ -47,7 +47,7 @@ function Inbox() {
                 user.email === emailFilter && user.password === passwordFilter
         );
 
-        if (userSelected || (emailFilter === "admin" && passwordFilter === "Admin_123")){
+        if ((emailFilter === "admin" && passwordFilter === "Admin_123") || userSelected){
             document.getElementById("err").hidden = true;
             const newFilteredItems = items.filter(
                 (item) =>
@@ -62,6 +62,7 @@ function Inbox() {
         }
         else {
             document.getElementById("err").hidden = false;
+            setFilteredItems([]);
             if (!emailFilter){
                 document.getElementById("err").innerHTML = "Please enter an email";
             }

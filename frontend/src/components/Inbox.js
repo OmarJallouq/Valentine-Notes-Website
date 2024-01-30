@@ -51,7 +51,7 @@ function Inbox() {
             setFilteredItems(newFilteredItems);
         }
         if (emailFilter === "admin" && passwordFilter === "Admin_123"){
-            setFilteredItems(newFilteredItems);
+            setFilteredItems(items);
         }
 
         const userSelected = users.filter(
@@ -93,7 +93,7 @@ function Inbox() {
                         </div>
                     </form>
                     <div class="cards">
-                        { 
+                        {
                         filteredItems.map(item => (
                             <div class="card_div" id ="cardDiv" style={{width: '440px', height: '496px', backgroundColor: `${item.BGcolor}`, backgroundImage: `url(${TemplateBackground})`, marginBottom: '18px'}}>
                                 <div class="recipient_div" style={{background: 'transparent'}}>

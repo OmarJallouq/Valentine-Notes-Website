@@ -94,7 +94,7 @@ function Inbox() {
                     </form>
                     <div class="cards">
                         {
-                            filteredItems.map(item => (
+                            items.map(item => (
                                 <div key={item.id} class="card_div" id ="cardDiv" style={{width: '440px', height: '496px', backgroundColor: `${item.BGcolor}`, backgroundImage: `url(${TemplateBackground})`, marginBottom: '18px'}}>
                                     <div class="recipient_div" style={{background: 'transparent'}}>
                                         <span class="to_text" style={{fontSize: '24px', lineHeight: '44px', background: 'transparent'}}>To:</span>

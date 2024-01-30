@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import TemplateBackground from '../styles/template.png';
+//import TemplateBackground from '../styles/template.png';
 import '../styles/inbox.css';
 
 function Inbox() {

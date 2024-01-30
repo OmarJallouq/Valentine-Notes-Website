@@ -43,24 +43,24 @@ function Inbox() {
   
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const newFilteredItems = items.filter(
-        (item) =>
-            item.recipient.email === emailFilter && item.recipient.password === passwordFilter
-        );
-        if(VALENTINESDAY){
-            setFilteredItems(newFilteredItems);
-        }
-        if (emailFilter === "admin" && passwordFilter === "Admin_123"){
-            setFilteredItems(items);
-        }
 
         const userSelected = users.filter(
             (user) =>
                 user.email === emailFilter && user.password === passwordFilter
         );
 
-        if (userSelected.length > 0 || (emailFilter === "admin" && passwordFilter === "Admin_123")){
+        if (userSelected.length || (emailFilter === "admin" && passwordFilter === "Admin_123")){
             document.getElementById("err").innerHTML = "";
+            const newFilteredItems = items.filter(
+                (item) =>
+                    item.recipient.email === emailFilter && item.recipient.password === passwordFilter
+            );
+            if(VALENTINESDAY){
+                setFilteredItems(newFilteredItems);
+            }
+            if (emailFilter === "admin" && passwordFilter === "Admin_123"){
+                setFilteredItems(newFilteredItems);
+            }
         }
         else {
             document.getElementById("err").hidden = false;
@@ -95,7 +95,7 @@ function Inbox() {
                     <div class="cards">
                         {
                         filteredItems.map(item => (
-                            <div class="card_div" id ="cardDiv" style={{width: '440px', height: '496px', backgroundColor: `${item.BGcolor}`, backgroundImage: `url(${TemplateBackground})`, marginBottom: '18px'}}>
+                            <div key={item.id} class="card_div" id ="cardDiv" style={{width: '440px', height: '496px', backgroundColor: `${item.BGcolor}`, backgroundImage: `url(${TemplateBackground})`, marginBottom: '18px'}}>
                                 <div class="recipient_div" style={{background: 'transparent'}}>
                                     <span class="to_text" style={{fontSize: '24px', lineHeight: '44px', background: 'transparent'}}>To:</span>
                                     <input class="recipient_input" name="recipientInput" style={{fontSize: '24px', lineHeight: '44px', background:'transparent', paddingLeft: '6px'}} value={item.recipient.name}/>

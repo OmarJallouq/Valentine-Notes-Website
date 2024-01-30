@@ -4,7 +4,7 @@ import TemplateBackground from '../styles/template.png';
 
 
 function Message() {
-    const [cardBackgroundColor, setCardBackgroundColor] = useState('');
+    const [cardBackgroundColor, setCardBackgroundColor] = useState('#000');
     const ChangeTextColor = useCallback(async () => {
         const getBrightness = (color) => {
             const rgb = color.match(/\d+/g);

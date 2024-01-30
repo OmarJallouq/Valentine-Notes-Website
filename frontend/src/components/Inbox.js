@@ -42,12 +42,12 @@ function Inbox() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const userSelected = users.filter(
+        const userSelected = users.find(
             (user) =>
                 user.email === emailFilter && user.password === passwordFilter
         );
 
-        if (userSelected.length || (emailFilter === "admin" && passwordFilter === "Admin_123")){
+        if (userSelected || (emailFilter === "admin" && passwordFilter === "Admin_123")){
             document.getElementById("err").hidden = true;
             const newFilteredItems = items.filter(
                 (item) =>
@@ -72,6 +72,8 @@ function Inbox() {
                 document.getElementById("err").innerHTML = "Invalid Credentials";
             }
         }
+
+        setFilteredItems([{"_id":"65b83ad63372ee2ed894a1b1","sender":"SECRET ","recipient":null,"message":"HI URE CUTE","BGcolor":"rgb(255,255,255)","TextColor":"#fff","__v":0},{"_id":"65b83bc23372ee2ed894a1b7","sender":"Anonymous","recipient":null,"message":"I HAVE A BUNNY CALLED NESQUIK","BGcolor":"rgb(255,255,255)","TextColor":"#fff","__v":0},{"_id":"65b83bc93372ee2ed894a1bb","sender":"Anonymous","recipient":null,"message":"HES RLY CUTE","BGcolor":"rgb(255,255,255)","TextColor":"#fff","__v":0},{"_id":"65b83bd53372ee2ed894a1bf","sender":"Anonymous","recipient":null,"message":"HOW LONG OF A MESSAGE CAN I SEND\r\n","BGcolor":"rgb(255,255,255)","TextColor":"#fff","__v":0},{"_id":"65b83be93372ee2ed894a1c3","sender":"Anonymous","recipient":null,"message":"WHAT IF I WANT TO POUR MY HEART OUT TO SOMEONE","BGcolor":"rgb(255,255,255)","TextColor":"#fff","__v":0},{"_id":"65b83bf83372ee2ed894a1c7","sender":"Anonymous","recipient":null,"message":"IN A LONG ASS NOVEL CONFESSION\r\n","BGcolor":"rgb(255,255,255)","TextColor":"#fff","__v":0},{"_id":"65b83c3a3372ee2ed894a21d","sender":"Anonymous","recipient":null,"message":"DO U KNOW THT SONG THAT GOES \"LALALLALALA\"","BGcolor":"rgb(255,255,255)","TextColor":"#fff","__v":0},{"_id":"65b83c4d3372ee2ed894a2c7","sender":"Anonymous","recipient":null,"message":"ROSES ARE RED","BGcolor":"rgb(248, 027, 027)","TextColor":"#fff","__v":0},{"_id":"65b83c553372ee2ed894a2d2","sender":"Anonymous","recipient":null,"message":"VIOLETS ARE BLUE","BGcolor":"rgb(018, 039, 252)","TextColor":"#fff","__v":0},{"_id":"65b83c603372ee2ed894a375","sender":"Anonymous","recipient":null,"message":"IM GOING TO SLEEP NOW","BGcolor":"rgb(249, 120, 209)","TextColor":"#000","__v":0},{"_id":"65b83c6a3372ee2ed894a3f4","sender":"Anonymous","recipient":null,"message":"AND SO SHOULD U","BGcolor":"rgb(167, 254, 167)","TextColor":"#000","__v":0},{"_id":"65b83d963372ee2ed894a40b","sender":"Anonymous","recipient":{"_id":"65b83c443372ee2ed894a2b2","name":"Omar Jallouq","email":"omarjallouq@gmail.com","password":"123456","__v":0},"message":"UR CAT HAS A RLY COOL NAME","BGcolor":"rgb(249, 119, 036)","TextColor":"#000","__v":0},{"_id":"65b83dab3372ee2ed894a410","sender":"Anonymous","recipient":{"_id":"65b83c443372ee2ed894a2b2","name":"Omar Jallouq","email":"omarjallouq@gmail.com","password":"123456","__v":0},"message":"V IS SUCH A NICE LETTER","BGcolor":"rgb(113, 027, 207)","TextColor":"#fff","__v":0},{"_id":"65b83e703372ee2ed894a417","sender":"Anonymous","recipient":{"_id":"65b83c3b3372ee2ed894a230","name":"USER1","email":"aiyshatarawneh@gmail.com","password":"password","__v":0},"message":"I CANT WAIT TO RELEASE IT \r\n\r\nXOXO,\r\nGOSSIP GIRL","BGcolor":"rgb(255,255,255)","TextColor":"#fff","__v":0},{"_id":"65b83e853372ee2ed894a41e","sender":"Anonymous","recipient":{"_id":"65b83c3b3372ee2ed894a230","name":"USER1","email":"aiyshatarawneh@gmail.com","password":"password","__v":0},"message":"BTW I FEEL LIKE 85% of the messages will be us","BGcolor":"rgb(255,255,255)","TextColor":"#fff","__v":0},{"_id":"65b83ea03372ee2ed894a425","sender":"hello","recipient":{"_id":"65b83c443372ee2ed894a2b2","name":"Omar Jallouq","email":"omarjallouq@gmail.com","password":"123456","__v":0},"message":"test","BGcolor":"rgb(248, 027, 027)","TextColor":"#fff","__v":0},{"_id":"65b83ea03372ee2ed894a429","sender":"Anonymous","recipient":{"_id":"65b83c3b3372ee2ed894a230","name":"USER1","email":"aiyshatarawneh@gmail.com","password":"password","__v":0},"message":"but we gotta do what we gotta do to save bai from antisocial behaviour","BGcolor":"rgb(255,255,255)","TextColor":"#fff","__v":0},{"_id":"65b8f4f18cfd6efa7edcaf12","sender":"babygaga","recipient":{"_id":"65b83c443372ee2ed894a2b2","name":"Omar Jallouq","email":"omarjallouq@gmail.com","password":"123456","__v":0},"message":"suck my monstrous COCK","BGcolor":"rgb(249, 120, 209)","TextColor":"#000","__v":0}]);
     };
 
     return(
@@ -91,8 +93,7 @@ function Inbox() {
                         </div>
                     </form>
                     <div class="cards">
-                        {filteredItems ? (
-                            
+                        {
                             filteredItems.map(item => (
                                 <div key={item.id} class="card_div" id ="cardDiv" style={{width: '440px', height: '496px', backgroundColor: `${item.BGcolor}`, backgroundImage: `url(${TemplateBackground})`, marginBottom: '18px'}}>
                                     <div class="recipient_div" style={{background: 'transparent'}}>
@@ -106,10 +107,7 @@ function Inbox() {
                                     </div>
                                 </div>
                             ))
-                            
-                        ): (
-                            <h3>No filtered items</h3>
-                        )}
+                        }
                     </div>
                     <h3 id="err" hidden='true'>Incorrect Email or Password</h3>
                 </div>

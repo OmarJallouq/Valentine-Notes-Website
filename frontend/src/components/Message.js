@@ -29,9 +29,12 @@ function Message() {
     const [items, setItems] = useState([]);
     const [message, setMessage] = useState('');
     const [sender, setSender] = useState('');
+    const [recipient, setRecipient] = useState('');
     const [messageCharacterError, setMessageCharacterError] = useState(false);
     const [senderCharacterError, setSenderCharacterError] = useState(false);
     const [textColor, setTextColor] = useState(false);
+    const [showConfirmation, setShowConfirmation] = useState(false);
+
 
     const fetchItems = async () => {
         try {
@@ -73,17 +76,41 @@ function Message() {
         setSender(newSender);
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+    
         if (messageCharacterError || senderCharacterError) {
-            event.preventDefault();
-            // Optionally, you can display an error message to the user
-            alert('There were errors with your submission. Please check the form.');
+          alert('There were errors with your submission. Please check the form.');
+        } else {
+          try {
+            await fetch('/api/sendMessage', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                messageInput: message,
+                senderInput: sender,
+                recipientInput: recipient, // You need to define this variable
+                cardBackgroundColor: cardBackgroundColor,
+              }),
+            });
+    
+            setShowConfirmation(true);
+            setTimeout(() => {
+              setShowConfirmation(false);
+            }, 3000);
+          } catch (error) {
+            console.error('Error submitting message:', error);
+            // Handle error accordingly (e.g., display an error message)
+          }
         }
-    };
+      };
+    
 
     return(
         <section>
-            <form id="messagesForm" method="POST" action="/api/sendMessage" onSubmit={handleSubmit}>
+            <form id="messagesForm" onSubmit={handleSubmit}>
                 {messageCharacterError || senderCharacterError ? (
                     <div class="big_wrapper">
                         <div style={{width: '689px'}}class="error rounded-md bg-red-200 mb-4 p-4">
@@ -117,7 +144,7 @@ function Message() {
                         <input type="hidden" id="textColor" name="textColor" value={textColor} />
                             <div class="recipient_div" style={{background: 'transparent'}}>
                                 <span class="to_text" style={{fontSize: '24px', lineHeight: '44px', background: 'transparent'}}>To:</span>
-                                <select class="recipient_input" name="recipientInput" style={{fontSize: '24px', lineHeight: '44px', background:'transparent'}}>
+                                <select class="recipient_input" name="recipientInput" style={{fontSize: '24px', lineHeight: '44px', background:'transparent'}} onChange={(e) => setRecipient(e.target.value)}>
                                     {items.map(item => (
                                     <option key={item._id} value={item.name}>
                                         {item.name}
@@ -170,6 +197,11 @@ function Message() {
                     </div>
                     <input type="submit" value="Send" class="submitBtn" disabled={!message.trim() || messageCharacterError || senderCharacterError}/>
             </form>
+            {showConfirmation && (
+                <div className="confirmation-message">
+                Message submitted successfully!
+                </div>
+            )}
         </section>
     );
 }

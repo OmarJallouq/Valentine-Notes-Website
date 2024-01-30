@@ -72,9 +72,6 @@ function Inbox() {
                 document.getElementById("err").innerHTML = "Invalid Credentials";
             }
         }
-        if(filteredItems){
-            setEmailFilter("admin");
-        }
     };
     return(
         <section>
@@ -94,7 +91,7 @@ function Inbox() {
                     </form>
                     <div class="cards">
                         {
-                            items.map(item => (
+                            filteredItems.map(item => (
                                 <div key={item.id} class="card_div" id ="cardDiv" style={{width: '440px', height: '496px', backgroundColor: `${item.BGcolor}`, backgroundImage: `url(${TemplateBackground})`, marginBottom: '18px'}}>
                                 {item.recipient && (
                                     <div class="recipient_div" style={{background: 'transparent'}}>

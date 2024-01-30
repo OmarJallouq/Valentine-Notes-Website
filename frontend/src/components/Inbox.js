@@ -97,10 +97,12 @@ function Inbox() {
                             items.map(item => (
                                 <div key={item.id} class="card_div" id ="cardDiv" style={{width: '440px', height: '496px', backgroundColor: `${item.BGcolor}`, backgroundImage: `url(${TemplateBackground})`, marginBottom: '18px'}}>
                                     {item.message}
-                                    <div class="recipient_div" style={{background: 'transparent'}}>
-                                        <span class="to_text" style={{fontSize: '24px', lineHeight: '44px', background: 'transparent'}}>To:</span>
-                                        <input class="recipient_input" name="recipientInput" style={{fontSize: '24px', lineHeight: '44px', background:'transparent', paddingLeft: '6px'}} value={item.recipient.name}/>
-                                    </div>
+                                    {item.recipient && item.recipient.name &&
+                                        <div class="recipient_div" style={{background: 'transparent'}}>
+                                            <span class="to_text" style={{fontSize: '24px', lineHeight: '44px', background: 'transparent'}}>To:</span>
+                                            <input class="recipient_input" name="recipientInput" style={{fontSize: '24px', lineHeight: '44px', background:'transparent', paddingLeft: '6px'}} value={item.recipient.name}/>
+                                        </div>
+                                    }
                                     {/* <textarea class="messageTA" name="messageInput" placeholder="Type Your Message Here..." style={{fontSize: '44px', lineHeight: '52px', color: item.TextColor ? item.TextColor : '#fff'}} value={item.message}></textarea>
                                     <div class="sender_div" style={{background: 'transparent'}}>
                                         <span class="from_text" style={{fontSize: '33px', lineHeight: '44px', background: 'transparent'}}>From: </span>

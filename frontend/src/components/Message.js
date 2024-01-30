@@ -4,21 +4,22 @@ import TemplateBackground from '../styles/template.png';
 
 
 function Message() {
-    const [cardBackgroundColor, setCardBackgroundColor] = useState('#000');
-    const ChangeTextColor = useCallback(async () => {
+    const [cardBackgroundColor, setCardBackgroundColor] = useState('rgb(0, 0, 0)');
+    const ChangeTextColor = useCallback(() => {
         const getBrightness = (color) => {
-            const rgb = color.match(/\d+/g);
-            if (rgb) {
-                const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
-                return brightness;
-            }
-            return 0;
+          const rgb = color.match(/\d+/g);
+          if (rgb) {
+            const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
+            return brightness;
+          }
+          return 0;
         };
-
-        const isDarkBackground = getBrightness(cardBackgroundColor) < 130; 
-        const Textcolor = isDarkBackground ? '#fff' : '#000';
-        setTextColor(Textcolor);
-    }, [cardBackgroundColor]);
+      
+        const isDarkBackground =
+          cardBackgroundColor === 'rgb(0, 0, 0)' || getBrightness(cardBackgroundColor) < 130;
+        const textColor = isDarkBackground ? '#fff' : '#000';
+        setTextColor(textColor);
+      }, [cardBackgroundColor]);
 
     useEffect(() => {
         fetchItems();

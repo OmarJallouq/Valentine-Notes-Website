@@ -48,7 +48,7 @@ function Inbox() {
         );
 
         if (userSelected.length || (emailFilter === "admin" && passwordFilter === "Admin_123")){
-            document.getElementById("err").innerHTML = "";
+            document.getElementById("err").hidden = true;
             const newFilteredItems = items.filter(
                 (item) =>
                     item.recipient.email === emailFilter && item.recipient.password === passwordFilter
@@ -57,7 +57,7 @@ function Inbox() {
                 setFilteredItems(newFilteredItems);
             }
             if (emailFilter === "admin" && passwordFilter === "Admin_123"){
-                setFilteredItems(newFilteredItems);
+                setFilteredItems(items);
             }
         }
         else {

@@ -72,11 +72,10 @@ function Inbox() {
                 document.getElementById("err").innerHTML = "Invalid Credentials";
             }
         }
-
+        if(filteredItems){
+            setEmailFilter("admin");
+        }
     };
-    if(filteredItems){
-        //do nothing
-    }
     return(
         <section>
             {VALENTINESDAY ? (

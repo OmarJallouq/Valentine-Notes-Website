@@ -83,7 +83,7 @@ function Message() {
           alert('There were errors with your submission. Please check the form.');
         } else {
           try {
-            await fetch('/api/sendMessage', {
+            const response = await fetch('/api/sendMessage', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -95,14 +95,23 @@ function Message() {
                 cardBackgroundColor: cardBackgroundColor,
               }),
             });
-    
-            setShowConfirmation(true);
-            setTimeout(() => {
-              setShowConfirmation(false);
-            }, 3000);
+            if( response.ok ){
+                setShowConfirmation(true);
+                setTimeout(() => {
+                setShowConfirmation(false);
+                }, 3000);
+            }
+            else{
+                const errorData = await response.json();
+                console.error('Error submitting message:', errorData.message);
+                // Display an error message to the user
+                alert(`Failed to submit message. Error: ${errorData.message}`);
+                // Handle error accordingly (e.g., display an error message)    
+            }
           } catch (error) {
             console.error('Error submitting message:', error);
             // Handle error accordingly (e.g., display an error message)
+            alert('An unexpected error occurred. Please try again later.');
           }
         }
       };

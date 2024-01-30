@@ -103,11 +103,11 @@ function Inbox() {
                                             <input class="recipient_input" name="recipientInput" style={{fontSize: '24px', lineHeight: '44px', background:'transparent', paddingLeft: '6px'}} value={item.recipient.name}/>
                                         </div>
                                     }
-                                    {/* <textarea class="messageTA" name="messageInput" placeholder="Type Your Message Here..." style={{fontSize: '44px', lineHeight: '52px', color: item.TextColor ? item.TextColor : '#fff'}} value={item.message}></textarea>
+                                    <textarea class="messageTA" name="messageInput" placeholder="Type Your Message Here..." style={{fontSize: '44px', lineHeight: '52px', color: item.TextColor ? item.TextColor : '#fff'}} value={item.message}></textarea>
                                     <div class="sender_div" style={{background: 'transparent'}}>
                                         <span class="from_text" style={{fontSize: '33px', lineHeight: '44px', background: 'transparent'}}>From: </span>
                                         <input class="sender_name" name="senderInput" placeholder="Enter Name" style={{fontSize: '33px', lineHeight: '44px', paddingLeft: '6px'}} value={item.sender}/>
-                                    </div> */}
+                                    </div>
                                 </div>
                             ))
                         }

@@ -23,6 +23,7 @@ function Message() {
     useEffect(() => {
         fetchItems();
         ChangeTextColor();
+        setCardBackgroundColor('#000')
     }, [cardBackgroundColor, ChangeTextColor]);
     
     const [items, setItems] = useState([]);

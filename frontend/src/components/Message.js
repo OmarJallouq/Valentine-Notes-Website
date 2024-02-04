@@ -59,8 +59,6 @@ function Message() {
         setSenderCharacterError(false);
         setDefaultOptionDisabled(false); 
         setCardBackgroundColor('rgb(0, 0, 0)');
-        const selectElement = document.getElementById('recipientInput');
-        selectElement.selectedIndex = -1;
     };
 
     const ChangeColor = async (color) => {

@@ -79,7 +79,7 @@ function Message() {
     const handleSubmit = async (event) => {
         event.preventDefault();
     
-        if (messageCharacterError || senderCharacterError) {
+        if (messageCharacterError || senderCharacterError || !recipient) {
           alert('There were errors with your submission. Please check the form.');
         } else {
           try {
@@ -91,7 +91,7 @@ function Message() {
               body: JSON.stringify({
                 messageInput: message,
                 senderInput: sender,
-                recipientInput: recipient, // You need to define this variable
+                recipientInput: recipient, 
                 cardBackgroundColor: cardBackgroundColor,
               }),
             });
@@ -154,6 +154,7 @@ function Message() {
                             <div class="recipient_div" style={{background: 'transparent'}}>
                                 <span class="to_text" style={{fontSize: '24px', lineHeight: '44px', background: 'transparent'}}>To:</span>
                                 <select class="recipient_input" name="recipientInput" style={{fontSize: '24px', lineHeight: '44px', background:'transparent'}} onChange={(e) => setRecipient(e.target.value)}>
+                                    <option key="Default" value="Default">Select Recipient</option>
                                     {items.map(item => (
                                     <option key={item._id} value={item.name}>
                                         {item.name}

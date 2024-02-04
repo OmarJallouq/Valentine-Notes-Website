@@ -137,7 +137,7 @@ function Message() {
           } catch (error) {
             console.error('Error submitting message:', error);
             // Handle error accordingly (e.g., display an error message)
-            alert('An unexpected error occurred. Please try again later.');
+            alert('An unexpected error occurred. Please try again later.', error);
           }
         }
       };

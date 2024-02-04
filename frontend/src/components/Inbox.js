@@ -10,7 +10,7 @@ function Inbox() {
     const [filteredItems, setFilteredItems] = useState([]);
     const [emailFilter, setEmailFilter] = useState('');
     const [passwordFilter, setPasswordFilter] = useState('');
-    const VALENTINESDAY = true
+    const VALENTINESDAY = true;
 
     useEffect(() => {
       fetchItems();
@@ -51,7 +51,7 @@ function Inbox() {
             document.getElementById("err").hidden = true;
             const newFilteredItems = items.filter(
                 (item) =>
-                    item.recipient.email === emailFilter && item.recipient.password === passwordFilter
+                    item.recipient?.email === emailFilter && item.recipient?.password === passwordFilter
             );
             if(VALENTINESDAY){
                 setFilteredItems(newFilteredItems);

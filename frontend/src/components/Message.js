@@ -41,7 +41,8 @@ function Message() {
         try {
             const response = await fetch('/api/users');
             const data = await response.json();
-            setItems(data);
+            const sortedData = data.sort((a, b) => a.name.localeCompare(b.name));
+            setItems(sortedData);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -146,7 +147,7 @@ function Message() {
         <section>
             <form id="messagesForm" onSubmit={handleSubmit}>
                 {messageCharacterError || senderCharacterError ? (
-                    <div class="big_wrapper">
+                    <div class="big_wrapper" id="errorDiv">
                         <div style={{width: '689px'}}class="error rounded-md bg-red-200 mb-4 p-4">
                             <div class="flex">
                                 <div class="flex-shrink-0">
@@ -174,16 +175,16 @@ function Message() {
                 ) : null}
                     <div class="submit_wrapper">
                         <div class="card_div" id ="cardDiv" style={{width: '440px', height: '496px', backgroundColor: `${cardBackgroundColor}`, backgroundImage: `url(${TemplateBackground})`}}>
-                        <input type="hidden" id="cardBackgroundColor" name="cardBackgroundColor" value={cardBackgroundColor} />
-                        <input type="hidden" id="textColor" name="textColor" value={textColor} />
+                            <input type="hidden" id="cardBackgroundColor" name="cardBackgroundColor" value={cardBackgroundColor} />
+                            <input type="hidden" id="textColor" name="textColor" value={textColor} />
                             <div class="recipient_div" style={{background: 'transparent'}}>
                                 <span class="to_text" style={{fontSize: '24px', lineHeight: '44px', background: 'transparent'}}>To:</span>
                                 <select class="recipient_input" name="recipientInput" style={{fontSize: '24px', lineHeight: '44px', background:'transparent'}} onChange={handleRecipientChange}>
-                                <option value="" disabled={!defaultOptionDisabled} hidden>Select a recipient</option>                                    
+                                    <option value="" disabled={!defaultOptionDisabled} hidden>Select a recipient</option>                                    
                                     {items.map(item => (
-                                    <option key={item._id} value={item.name}>
-                                        {item.name}
-                                    </option>
+                                        <option key={item._id} value={item.name}>
+                                            {item.name}
+                                        </option>
                                     ))}
                                 </select>
                             </div>
@@ -233,8 +234,19 @@ function Message() {
                     <input type="submit" value="Send" class="submitBtn" disabled={!message.trim() || messageCharacterError || senderCharacterError}/>
             </form>
             {showConfirmation && (
-                <div className="confirmation-message">
-                Message submitted successfully!
+                <div class="big_wrapper" id="confirmationDiv">
+                    <div style={{width: '689px'}}class="confirm rounded-md bg-green-200 mb-4 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg style={{background: 'transparent'}} xmlns="http://www.w3.org/2000/svg" fill="green" viewBox="0 0 24 24" width="20" height="20">
+                                    <path d="M12 21.35l-1.45-1.32C5.4 14.25 2 11.36 2 7.5 2 4.5 4.5 2 7.5 2c1.74 0 3.41.81 4.5 2.09C15.09 2.81 16.76 2 18.5 2 21.5 2 24 4.5 24 7.5c0 3.86-3.4 6.75-8.55 12.54L12 21.35z"/>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h3 style={{textAlign: 'left'}}class="text-sm font-medium text-green-800">Message sent successfully! Happy Valentines &lt;3</h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             )}
         </section>

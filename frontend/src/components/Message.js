@@ -47,6 +47,19 @@ function Message() {
         }
     };
     
+    const resetFormFields = () => {
+        // Reset form fields using the form's reset method
+        document.getElementById('messagesForm').reset();
+      
+        // Reset state variables
+        setMessage('');
+        setSender('');
+        setRecipient('');
+        setMessageCharacterError(false);
+        setSenderCharacterError(false);
+        setDefaultOptionDisabled(false); 
+    };
+
     const ChangeColor = async (color) => {
         setCardBackgroundColor(color);
     };
@@ -105,6 +118,7 @@ function Message() {
               }),
             });
             if( response.ok ){
+                resetFormFields();
                 setShowConfirmation(true);
                 setTimeout(() => {
                 setShowConfirmation(false);

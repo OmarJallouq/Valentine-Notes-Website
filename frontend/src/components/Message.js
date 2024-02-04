@@ -34,7 +34,7 @@ function Message() {
     const [senderCharacterError, setSenderCharacterError] = useState(false);
     const [textColor, setTextColor] = useState(false);
     const [showConfirmation, setShowConfirmation] = useState(false);
-    const [defaultOptionDisabled, setDefaultOptionDisabled] = useState(false);
+    const [defaultOptionDisabled, setDefaultOptionDisabled] = useState(true);
 
 
     const fetchItems = async () => {

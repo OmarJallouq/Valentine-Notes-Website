@@ -121,11 +121,11 @@ function Message() {
               }),
             });
             if( response.ok ){
+                resetFormFields();
                 setShowConfirmation(true);
                 setTimeout(() => {
                     setShowConfirmation(false);
                 }, 3000);
-                resetFormFields();
             }
             else{
                 const errorData = await response.json();
@@ -137,7 +137,7 @@ function Message() {
           } catch (error) {
             console.error('Error submitting message:', error);
             // Handle error accordingly (e.g., display an error message)
-            alert('An unexpected error occurred. Please try again later.', error);
+            alert('An unexpected error occurred. Please try again later.');
           }
         }
       };

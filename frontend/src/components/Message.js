@@ -116,6 +116,7 @@ function Message() {
                 senderInput: sender,
                 recipientInput: recipient, 
                 cardBackgroundColor: cardBackgroundColor,
+                textColor: textColor,
               }),
             });
             if( response.ok ){

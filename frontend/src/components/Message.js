@@ -180,7 +180,7 @@ function Message() {
                             <div class="recipient_div" style={{background: 'transparent'}}>
                                 <span class="to_text" style={{fontSize: '24px', lineHeight: '44px', background: 'transparent'}}>To:</span>
                                 <select class="recipient_input" name="recipientInput" style={{fontSize: '24px', lineHeight: '44px', background:'transparent'}} onChange={handleRecipientChange}>
-                                <option value="" disabled={defaultOptionDisabled} hidden>Select a recipient</option>                                    
+                                <option value="" disabled={!defaultOptionDisabled} hidden>Select a recipient</option>                                    
                                     {items.map(item => (
                                     <option key={item._id} value={item.name}>
                                         {item.name}

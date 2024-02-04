@@ -121,11 +121,11 @@ function Message() {
               }),
             });
             if( response.ok ){
-                resetFormFields();
                 setShowConfirmation(true);
                 setTimeout(() => {
-                setShowConfirmation(false);
+                    setShowConfirmation(false);
                 }, 3000);
+                resetFormFields();
             }
             else{
                 const errorData = await response.json();

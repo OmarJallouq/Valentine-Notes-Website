@@ -114,7 +114,7 @@ function Inbox() {
             ) : (
                 <div style={{paddingTop: '18px'}}>
                     <div class="wrapper" style={{justifyContent: 'center'}}>
-                        <h3 style={{color: 'white'}}>You can access your messages on the 14th of February! Check back then!</h3>
+                        <h3 style={{color: 'white'}}>You can access your messages on the 14th of February! Check back soon!</h3>
                         <button onClick={handleMessageClick} style={{paddingLeft: 24, paddingRight: 24, paddingTop: 10, paddingBottom: 10, background: 'white', borderRadius: 8, border: '3px #FF82A9 solid', justifyContent: 'center', alignItems: 'center', gap: 10, display: 'flex', margin: 'auto'}}>
                             <div style={{color: '#FF82A9', backgroundColor: 'transparent', fontSize: 16, fontFamily: 'Inter', fontWeight: '700', wordWrap: 'normal', whiteSpace: 'nowrap', margin: 'auto'}}>Send a Message</div>
                         </button>

@@ -10,8 +10,7 @@ function Inbox() {
     const [filteredItems, setFilteredItems] = useState([]);
     const [emailFilter, setEmailFilter] = useState('');
     const [passwordFilter, setPasswordFilter] = useState('');
-    const dateToday = Date.now();
-    const VALENTINESDAY = (dateToday.getMonth() === 2 && dateToday.getDate() === 14);
+    const VALENTINESDAY = false;
 
     useEffect(() => {
       fetchItems();

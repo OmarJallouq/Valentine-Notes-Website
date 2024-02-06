@@ -4,6 +4,7 @@ import Home from './components/Home'
 import Inbox from './components/Inbox'
 import Message from './components/Message'
 import AddUser from './components/AddUser'
+import Footer from './components/Footer'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import ResolutionError from './components/ResolutionError';
@@ -34,6 +35,7 @@ function App() {
             <Route path='/send-a-message' element={<Message />}/>
             <Route path='/AddUser' element={<AddUser />}/>
           </Routes>
+          <Footer />
       </div>) : (
         <ResolutionError />
       )}

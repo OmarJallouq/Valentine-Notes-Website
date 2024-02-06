@@ -1,0 +1,29 @@
+/* Import any additional styles or fonts here */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
+
+/* Global styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--mainColor);
+}
+
+:root {
+  --mainColor: #d33b6b;
+  --textColor: #101010;
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #FFFFFF;
+  color: var(--textColor);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Add any additional styles for the footer here */

@@ -1,99 +1,102 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-    background-color: var(--mainColor);
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--mainColor);
+  z-index: 1000;
 }
 
-:root{
-    --mainColor: #d33b6b;
-    --textColor: #101010;
-
+:root {
+  --mainColor: #d33b6b;
+  --textColor: #101010;
 }
+
 h3 {
-    background: transparent;
-}
-header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 80px;
-    padding: 0 2rem;
-    background-color: #FFFFFF;
-    color: var(--textColor);
+  background: transparent;
 }
 
-nav{
-    background: transparent;
-    margin-left: auto;
+header {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 2rem;
+  background-color: #FFFFFF;
+  color: var(--textColor);
 }
 
-nav a{
-    margin: 0 2rem;
-    color: var(--textColor);
-    text-decoration: none;
-    background: transparent;
+nav {
+  background: transparent;
+  margin-left: auto;
 }
 
-nav a:hover{
-    color: var(--mainColor);
+nav a {
+  margin: 0 2rem;
+  color: var(--textColor);
+  text-decoration: none;
+  background: transparent;
+}
+
+nav a:hover {
+  color: var(--mainColor);
 }
 
 .active {
-    font-weight: 800;
-    color: var(--mainColor);
+  font-weight: 800;
+  color: var(--mainColor);
 }
 
-header .nav-btn{
-    padding: 5px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    color: var(--textColor);
-    visibility: hidden;
-    opacity: 0;
-    font-size: 1.8rem;
-    background: transparent;
+header .nav-btn {
+  padding: 5px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: var(--textColor);
+  visibility: hidden;
+  opacity: 0;
+  font-size: 1.8rem;
+  background: transparent;
 }
 
-@media only screen and (max-width: 1024px){
-    header .nav-btn{
-        visibility: visible;
-        opacity: 1;
-        z-index: 1000;
-    }
+@media only screen and (max-width: 1024px) {
+  header .nav-btn {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1000;
+  }
 
-    header nav{
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1.5rem;
-        background-color: #FFFFFF;
-        transition: 1s;
-        transform: translateY(-100vh);
-        z-index: 1001;
-    }
+  header nav {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: #FFFFFF;
+    transition: 1s;
+    transform: translateY(-100vh);
+    z-index: 1001;
+  }
 
-    header .responsive_nav{
-        transform: none;
-    }
+  header .responsive_nav {
+    transform: none;
+  }
 
-    nav .nav-close-btn{
-        position: absolute;
-        top: 2rem;
-        right: 2rem;
-    }
+  nav .nav-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
 
-    nav a{
-        font-size: 1.5rem;
-    }
+  nav a {
+    font-size: 1.5rem;
+  }
 }

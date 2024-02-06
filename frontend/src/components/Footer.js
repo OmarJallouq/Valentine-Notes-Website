@@ -3,8 +3,8 @@ import '../styles/footer.css';
 
 function Footer() {
   return (
-    <footer>
-      <p>&copy; 2024 BAI Valentines. All rights reserved.</p>
+    <footer style={{background: 'transparent'}}>
+      <p style={{background: 'transparent'}}>Made with love, the BAI Valentines Team &lt;3.</p>
     </footer>
   );
 }

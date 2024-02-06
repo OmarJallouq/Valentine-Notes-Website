@@ -17,13 +17,14 @@
 
 /* Footer styles */
 footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #FFFFFF;
-  color: var(--textColor);
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+    text-align: center;
+    padding: 1rem;
+    background-color: #FFFFFF;
+    color: var(--textColor);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px
 }
 
 /* Add any additional styles for the footer here */

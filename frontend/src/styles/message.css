@@ -1,7 +1,7 @@
 section{
     padding-top: 80px;
 }
-select:focus {
+select {
     background: white
   }
 

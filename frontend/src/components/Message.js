@@ -231,7 +231,7 @@ function Message() {
                             </div>
                         </div>
                     </div>
-                    <input type="submit" value="Send" class="submitBtn" disabled={!message.trim() || messageCharacterError || senderCharacterError}/>
+                    <input type="submit" value="Send" class="submitBtn" disabled={!message.trim() || messageCharacterError || senderCharacterError || sender===''}/>
             </form>
             {showConfirmation && (
                 <div class="big_wrapper" id="confirmationDiv">

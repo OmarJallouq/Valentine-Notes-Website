@@ -5,7 +5,7 @@ function ResolutionError() {
   return (
     <div className="error-container">
       <h1>Screen Resolution Too Small</h1>
-      <p>Please use a larger screen to access this website.</p>
+      <p>Please use a computer to access this website.</p>
     </div>
   );
 }

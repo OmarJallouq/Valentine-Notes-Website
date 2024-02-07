@@ -42,7 +42,7 @@ router.post('/sendMessage', async (req, res) => {
 
     newMessage.save().then(()=>{
         res.end();
-        console.log("NEW LOVE MESSAGE!!!!")
+        console.log("NEW LOVE MESSAGE!!!!");
     }).catch((err)=>{
         console.log(err);
         res.end('');

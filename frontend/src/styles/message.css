@@ -1,6 +1,10 @@
 section{
     padding-top: 80px;
 }
+select:focus {
+    background: white
+  }
+
 div{
     display: block;
 }

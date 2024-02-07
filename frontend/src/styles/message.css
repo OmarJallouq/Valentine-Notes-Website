@@ -1,9 +1,11 @@
 section{
     padding-top: 80px;
 }
-select {
-    background: white
-  }
+
+select option {
+    background-color: white; /* Set the background color for each option */
+    color: black; /* Set the text color for each option */
+}
 
 div{
     display: block;

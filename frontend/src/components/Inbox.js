@@ -80,7 +80,7 @@ function Inbox() {
                 <div>
                     <form class="form" onSubmit={handleSubmit}>
                         <div class="wrapper">
-                            <div class="title">Welcome,<br/><span>Enter credentials to continue</span></div>
+                            <div class="title">Welcome,<br/><span>Enter credentials to continue (Text Omar/Velina if you don't have yours!)</span></div>
                             <div>
                                 <input class="input" type="text" name="emailInput" placeholder="Put your email here" onChange={(e) => setEmailFilter(e.target.value)}/>
                             </div>

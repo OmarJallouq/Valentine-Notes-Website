@@ -41,7 +41,8 @@ function Message() {
         try {
             const response = await fetch('/api/users');
             const data = await response.json();
-            const sortedData = data.sort((a, b) => a.name.localeCompare(b.name));
+            const filteredData = data.filter(item => item.name !== "You");
+            const sortedData = filteredData.sort((a, b) => a.name.localeCompare(b.name));
             setItems(sortedData);
         } catch (error) {
             console.error('Error fetching data:', error);

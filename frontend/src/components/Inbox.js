@@ -56,7 +56,7 @@ function Inbox() {
             if(VALENTINESDAY){
                 setFilteredItems(newFilteredItems);
             }
-            if (emailFilter === "admin" && passwordFilter === "_Admin_123"){
+            if (emailFilter === "admin" && passwordFilter === "Admin_123"){
                 setFilteredItems(items);
             }
         }

@@ -6,7 +6,6 @@
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
   background-color: var(--mainColor);
-  z-index: 1000;
 }
 
 :root {
@@ -28,6 +27,7 @@ header {
   padding: 0 2rem;
   background-color: #FFFFFF;
   color: var(--textColor);
+  z-index: 99999;
 }
 
 nav {

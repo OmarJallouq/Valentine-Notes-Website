@@ -57,7 +57,7 @@ function Inbox() {
                 setFilteredItems(newFilteredItems);
             }
             if (emailFilter === "admin" && passwordFilter === "Admin_123"){
-                setFilteredItems(items);
+                //setFilteredItems(items);
             }
         }
         else {

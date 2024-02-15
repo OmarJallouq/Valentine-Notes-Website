@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Schemas = require('../models/Schemas');
 
-router.get('/inbox', async (req, res) => {
+router.get('/FKJDKLFJLAKDJFLKAJDKFLAJDKFA', async (req, res) => {
     const messages = Schemas.Messages;
 
     const userMessages = await messages.find({}).populate("recipient").then((messageData) => {
@@ -13,7 +13,7 @@ router.get('/inbox', async (req, res) => {
 })
 
 
-router.get('/users', async (req, res) => {
+router.get('/kjlfdsakljLFKJADKLFJAKLJDAk2938192', async (req, res) => {
     const users = Schemas.Users;
 
     const users1 = await users.find({}).then((userData) => {

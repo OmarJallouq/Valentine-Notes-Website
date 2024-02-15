@@ -23,7 +23,7 @@ function Inbox() {
 
     const fetchItems = async () => {
       try {
-        const response = await fetch('/api/inbox');
+        const response = await fetch('/api/FKJDKLFJLAKDJFLKAJDKFLAJDKFA');
         const data = await response.json();
         setItems(data);
       } catch (error) {
@@ -31,7 +31,7 @@ function Inbox() {
       }
 
       try {
-        const response = await fetch('/api/users');
+        const response = await fetch('/api/kjlfdsakljLFKJADKLFJAKLJDAk2938192');
         const data = await response.json();
         setUsers(data);
       } catch (error) {

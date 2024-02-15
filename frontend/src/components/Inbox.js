@@ -23,7 +23,7 @@ function Inbox() {
 
     const fetchItems = async () => {
       try {
-        const response = await fetch(process.env.INBOXLINK);
+        const response = await fetch(INBOXLINK);
         const data = await response.json();
         setItems(data);
       } catch (error) {
@@ -31,7 +31,7 @@ function Inbox() {
       }
 
       try {
-        const response = await fetch(process.env.USERLINK);
+        const response = await fetch(USERLINK);
         const data = await response.json();
         setUsers(data);
       } catch (error) {

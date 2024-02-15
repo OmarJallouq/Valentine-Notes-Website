@@ -9,4 +9,4 @@ to = "/"
 status = 200
 
 [build]
-  command = "npm run build && echo 'INBOXLINK: $INBOXLINK' && echo 'USERLINK: $USERLINK'"
+  command = "npm run build && echo \"INBOXLINK: $INBOXLINK\" && echo \"USERLINK: $USERLINK\""

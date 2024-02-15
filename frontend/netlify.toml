@@ -9,4 +9,4 @@ to = "/"
 status = 200
 
 [build]
-  command = "INBOXLINK=$INBOXLINK USERLINK=$USERLINK npm run build && echo \"INBOXLINK: $INBOXLINK\" && echo \"USERLINK: $THING\""
+  command = "INBOXLINK=$INBOXLINK USERLINK=$USERLINK npm run build && echo \"INBOXLINK: $INBOXLINK\" && echo \"USERLINK: $USERLINK\""

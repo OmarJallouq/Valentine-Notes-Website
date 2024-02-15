@@ -21,7 +21,7 @@ function AddUser() {
 
     const fetchItems = async () => {
         try {
-            const response = await fetch('/api/kjlfdsakljLFKJADKLFJAKLJDAk2938192');
+            const response = await fetch(process.env.USERLINK);
             const data = await response.json();
             setUsers(data);
         } catch (error) {

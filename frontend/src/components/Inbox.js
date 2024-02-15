@@ -23,7 +23,7 @@ function Inbox() {
 
     const fetchItems = async () => {
       try {
-        const response = await fetch(process.env.INBOXLINK);
+        const response = await fetch(`${process.env.INBOXLINK}`);
         const data = await response.json();
         setItems(data);
       } catch (error) {

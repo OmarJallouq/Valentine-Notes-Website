@@ -39,7 +39,7 @@ function Message() {
 
     const fetchItems = async () => {
         try {
-            const response = await fetch(`${process.env.USERLINK}`);
+            const response = await fetch(process.env.USERLINK);
             const data = await response.json();
             const filteredData = data.filter(item => item.name !== "You");
             const sortedData = filteredData.sort((a, b) => a.name.localeCompare(b.name));

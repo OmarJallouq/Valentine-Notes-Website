@@ -7,3 +7,7 @@ status = 200
 from = "/*"
 to = "/"
 status = 200
+
+[build]
+  command = "npm run build"
+  publish = "build-folder"

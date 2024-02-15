@@ -158,7 +158,7 @@ function Message() {
                                     </svg>
                                 </div>
                                 <div class="ml-3">
-                                    <h3 style={{textAlign: 'left'}}class="text-sm font-medium text-red-800">{`${process.env.USERLINK}There were errors with your submission`}</h3>
+                                    <h3 style={{textAlign: 'left'}}class="text-sm font-medium text-red-800">{`${process.env.INBOXLINK}There were errors with your submission`}</h3>
                                     <div style={{background: 'transparent'}} class="mt-2 text-sm text-red-700">
                                         <ul class="list-disc pl-5 space-y-1">
                                             {messageCharacterError && (

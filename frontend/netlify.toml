@@ -7,6 +7,3 @@ status = 200
 from = "/*"
 to = "/"
 status = 200
-
-[build]
-  command = "INBOXLINK=$INBOXLINK USERLINK=$USERLINK npm run build && echo \"INBOXLINK: $INBOXLINK\" && echo \"USERLINK: $USERLINK\""

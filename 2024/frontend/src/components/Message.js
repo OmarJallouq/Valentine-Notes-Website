@@ -35,11 +35,12 @@ function Message() {
     const [textColor, setTextColor] = useState(false);
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [defaultOptionDisabled, setDefaultOptionDisabled] = useState(true);
+    const apiUrl = process.env.NODE_ENV === 'production' ? "https://bai-valentines.onrender.com/api" : '/api'; // Add /api in prod
 
 
     const fetchItems = async () => {
         try {
-            const response = await fetch('/api/kjlfdsakljLFKJADKLFJAKLJDAk2938192');
+            const response = await fetch(`${apiUrl}/kjlfdsakljLFKJADKLFJAKLJDAk2938192`);
             const data = await response.json();
             const filteredData = data.filter(item => item.name !== "You");
             const sortedData = filteredData.sort((a, b) => a.name.localeCompare(b.name));

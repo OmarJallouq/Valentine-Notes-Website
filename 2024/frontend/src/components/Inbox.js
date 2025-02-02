@@ -11,7 +11,7 @@ function Inbox() {
     const [emailFilter, setEmailFilter] = useState('');
     const [passwordFilter, setPasswordFilter] = useState('');
     const VALENTINESDAY = true;
-    const apiUrl = process.env.NODE_ENV === 'production' ? "https://bai-valentines.onrender.com" : '/api'; // Add /api in prod
+    const apiUrl = process.env.NODE_ENV === 'production' ? "https://bai-valentines.onrender.com/api" : '/api'; // Add /api in prod
 
     useEffect(() => {
         fetchItems();
@@ -33,7 +33,7 @@ function Inbox() {
         }
 
         try {
-            const response = await fetch('/api/kjlfdsakljLFKJADKLFJAKLJDAk2938192');
+            const response = await fetch(`${apiUrl}/kjlfdsakljLFKJADKLFJAKLJDAk2938192`);
             const data = await response.json();
             setUsers(data);
         } catch (error) {

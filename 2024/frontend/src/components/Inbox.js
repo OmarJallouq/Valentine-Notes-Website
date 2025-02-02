@@ -11,7 +11,7 @@ function Inbox() {
     const [emailFilter, setEmailFilter] = useState('');
     const [passwordFilter, setPasswordFilter] = useState('');
     const VALENTINESDAY = true;
-    const apiUrl = process.env.NODE_ENV === 'production' ? '/api' : "https://bai-valentines.onrender.com"; // Add /api in prod
+    const apiUrl = process.env.NODE_ENV === 'production' ? "https://bai-valentines.onrender.com" : '/api'; // Add /api in prod
 
     useEffect(() => {
         fetchItems();

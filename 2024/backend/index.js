@@ -9,7 +9,7 @@ require('dotenv/config')
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use('/', routesHandler);
+
 
 const allowedOrigins = [process.env.FRONTEND_URL]
 app.use(cors({
@@ -21,6 +21,8 @@ app.use(cors({
     }
   },
 }));
+
+app.use('/', routesHandler);
 
 //DB Connection
 mongoose.connect(process.env.DB_URI)

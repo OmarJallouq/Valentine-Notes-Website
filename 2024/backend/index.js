@@ -7,7 +7,7 @@ require('dotenv/config')
 
 const app = express();
 
-const allowedOrigins = [process.env.FRONTEND_URL]
+const allowedOrigins = ['https://baivalentines.netlify.app/']
 app.use(cors({
   origin: function (origin, callback) {
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {

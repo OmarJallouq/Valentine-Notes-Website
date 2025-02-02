@@ -25,7 +25,7 @@ app.use(cors({
 app.use('/', routesHandler);
 
 //DB Connection
-mongoose.connect(process.env.DB_URI)
+mongoose.connect(`${process.env.DB_URI}`)
   .then(() => {
     console.log('DB Connected!');
   })

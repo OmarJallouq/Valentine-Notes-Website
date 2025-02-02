@@ -8,15 +8,9 @@ require('dotenv/config')
 const app = express();
 
 const allowedOrigins = ['https://baivalentines.netlify.app/']
-// app.use(cors({
-//   origin: function (origin, callback) {
-//     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS'));
-//     }
-//   },
-// }));
+app.use(cors({
+  origin: '*',
+}));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

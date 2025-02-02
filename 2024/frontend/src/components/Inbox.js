@@ -11,6 +11,7 @@ function Inbox() {
     const [emailFilter, setEmailFilter] = useState('');
     const [passwordFilter, setPasswordFilter] = useState('');
     const VALENTINESDAY = true;
+    const apiUrl = process.env.NODE_ENV === 'production' ? '/api' : process.env.BACKEND_URL; // Add /api in prod
 
     useEffect(() => {
         fetchItems();
@@ -23,7 +24,7 @@ function Inbox() {
 
     const fetchItems = async () => {
         try {
-            const response = await fetch('/api/FKJDKLFJLAKDJFLKAJDKFLAJDKFA');
+            const response = await fetch(`${apiUrl}/FKJDKLFJLAKDJFLKAJDKFLAJDKFA`);
             const data = await response.json();
             setItems(data);
         } catch (error) {

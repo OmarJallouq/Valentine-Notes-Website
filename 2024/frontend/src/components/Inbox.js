@@ -11,7 +11,7 @@ function Inbox() {
     const [emailFilter, setEmailFilter] = useState('');
     const [passwordFilter, setPasswordFilter] = useState('');
     const VALENTINESDAY = true;
-    const apiUrl = process.env.NODE_ENV === 'production' ? '/api' : process.env.BACKEND_URL; // Add /api in prod
+    const apiUrl = process.env.NODE_ENV === 'production' ? '/api' : "https://bai-valentines.onrender.com"; // Add /api in prod
 
     useEffect(() => {
         fetchItems();
@@ -23,6 +23,7 @@ function Inbox() {
     };
 
     const fetchItems = async () => {
+        console.log(process.env.REACT_APP_BACKEND_URL)
         try {
             const response = await fetch(`${apiUrl}/FKJDKLFJLAKDJFLKAJDKFLAJDKFA`);
             const data = await response.json();

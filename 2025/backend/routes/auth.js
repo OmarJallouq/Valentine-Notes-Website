@@ -10,7 +10,8 @@ const router = express.Router();
 router.post("/request-verification", async (req, res) => {
     try {
         const { email } = req.body;
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ email: email });
+        console.log(user)
 
         if (!user) return res.status(400).json({ message: "Email not found" });
         if (user.hasAccount) return res.status(400).json({ message: "Account already exists with this email!" });

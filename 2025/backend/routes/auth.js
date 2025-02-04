@@ -2,52 +2,50 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
-const sendVerificationEmail = require("../utils/sendEmail");
+//const sendVerificationEmail = require("../utils/sendEmail");
 
 const router = express.Router();
 
 // SIGN UP (Step 1: Request email verifivation)
-router.post("/request-verification", async (req, res) => {
-    try {
-        const { email } = req.body;
-        const user = await User.findOne({ email: email });
-        console.log(user)
+// router.post("/request-verification", async (req, res) => {
+//     try {
+//         const { email } = req.body;
+//         const user = await User.findOne({ email: email });
+//         console.log(user)
 
-        if (!user) return res.status(400).json({ message: "Email not found" });
-        if (user.hasAccount) return res.status(400).json({ message: "Account already exists with this email!" });
+//         if (!user) return res.status(400).json({ message: "Email not found" });
+//         if (user.hasAccount) return res.status(400).json({ message: "Account already exists with this email!" });
 
-        // Generate one-time verification token
-        const verificationToken = jwt.sign({ email }, `${process.env.EMAIL_SECRET}`, { expiresIn: "15m" });
+//         // Generate one-time verification token
+//         const verificationToken = jwt.sign({ email }, `${process.env.EMAIL_SECRET}`, { expiresIn: "15m" });
 
-        // Send email 
-        await sendVerificationEmail(email, verificationToken);
+//         // Send email 
+//         await sendVerificationEmail(email, verificationToken);
 
-        return res.json({ message: "Verification email sent!" });
-    } catch (err) {
-        console.error(err);
-        return res.status(500).json({ message: "Server error!" });
-    }
-})
+//         return res.json({ message: "Verification email sent!" });
+//     } catch (err) {
+//         console.error(err);
+//         return res.status(500).json({ message: "Server error!" });
+//     }
+// })
 
 // SIGN UP (Step 2: Create account after verification)
 router.post("/signup", async (req, res) => {
     try {
-        const { token, password } = req.body;
+        const { email, password } = req.body;
+        let user = await User.findOne({ email });
 
-        // Verify token 
-        const { email } = jwt.verify(token, process.env.EMAIL_SECRET);
-        const user = await User.findOne({ email });
+        if (!user) return res.status(400).json({ message: "Email doesn't exist!" });
+        if (user.hasAccount) return res.status(400).json({ message: "Account already exists!" });
 
-        if (!user || user.hasAccount) return res.status(400).json({ message: "Invalid request!" });
-
-        // Has password and update user
+        // Hash password and update user
         user.password = await bcrypt.hash(password, 10);
         user.hasAccount = true;
         await user.save();
 
         return res.json({ message: "Account created!" });
     } catch (err) {
-        return res.status(400).json({ message: "Invalid or expried token!" });
+        return res.status(400).json({ message: "Server error!" });
     }
 })
 

@@ -53,7 +53,7 @@ function Inbox() {
             document.getElementById("err").hidden = true;
             const newFilteredItems = items.filter(
                 (item) =>
-                    (item.recipient?.email === emailFilter && item.recipient?.password === passwordFilter) || item.sender === "Omar & Velina" //TODO ADD TEAM NAME OR WHATEVER
+                    (item.recipient?.email === emailFilter && item.recipient?.password === passwordFilter) || item.sender === "Omar & Velina"
             );
             if (VALENTINESDAY) {
                 setFilteredItems(newFilteredItems);

@@ -2,12 +2,18 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 export default function AuthPage() {
   const [isSignup, setIsSignup] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailValid, setEmailValid] = useState(false);
+  const { login } = useAuth();
+
+  const router = useRouter();
 
   const backendURL =
     process.env.NODE_ENV == "production"
@@ -32,19 +38,16 @@ export default function AuthPage() {
           setIsSignup(true);
           setEmailValid(false);
           setPassword("");
-          alert("No account created!");
+          toast.warn("No account created. Sign up first!");
           return;
         }
         throw new Error(data.message || "Something went wrong!");
       }
+      toast.success(isSignup ? "Account created!" : "Logged in!");
 
-      console.log("Success:", data);
-      localStorage.setItem("token", data.token); // Store JWT
-
-      alert(isSignup ? "Account created!" : "Logged in!");
-      window.location.href = "/send-message";
+      login(data.token);
     } catch (error) {
-      alert(error.message);
+      toast.error(error.message);
     }
   };
 

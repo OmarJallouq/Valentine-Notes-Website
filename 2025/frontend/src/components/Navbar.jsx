@@ -1,20 +1,10 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useAuth } from "@/context/AuthContext";
 
 export default function Navbar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    setIsLoggedIn(!!localStorage.getItem("token"));
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    setIsLoggedIn(false);
-    alert("Logged out successfully!");
-    window.location.href = "/login";
-  };
+  const { isLoggedIn, logout } = useAuth();
 
   return (
     <nav className="p-4 bg-black/50 backdrop-blur-md text-white flex justify-between items-center fixed w-full top-0 shadow-lg">
@@ -34,10 +24,7 @@ export default function Navbar() {
             <Link href="/inbox" className="hover:text-pink-400 transition">
               Inbox
             </Link>
-            <button
-              onClick={handleLogout}
-              className="text-red-400 hover:underline"
-            >
+            <button onClick={logout} className="text-red-400 hover:underline">
               Logout
             </button>
           </>

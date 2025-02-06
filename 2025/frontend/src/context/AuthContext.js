@@ -5,9 +5,20 @@ import { usePathname, useRouter } from "next/navigation";
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(null);
+    const [loading, setLoading] = useState(true);
     const pathname = usePathname(); // ✅ Get current page path
     const router = useRouter(); // ✅ For redirects
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+
+        if (!!token) {
+            login(token);
+        }
+        setIsLoggedIn(!!token);
+        setLoading(false);
+    }, [])
 
     useEffect(() => {
         // ✅ Check token on mount & route change
@@ -25,6 +36,10 @@ export function AuthProvider({ children }) {
         setIsLoggedIn(false);
         router.push("/login");
     };
+
+    // if (loading) {
+    //     return <div className="text-white text-center">Loading...</div>;
+    // }
 
     return (
         <AuthContext.Provider value={{ isLoggedIn, login, logout }}>

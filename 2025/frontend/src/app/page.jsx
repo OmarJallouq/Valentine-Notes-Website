@@ -17,12 +17,6 @@ export default function Landing() {
         >
           Send a Message
         </Link>
-        <Link
-          href="/login"
-          className="px-6 py-3 border border-white rounded-lg shadow-lg hover:bg-white hover:text-black transition"
-        >
-          Sign In
-        </Link>
       </div>
     </main>
   );

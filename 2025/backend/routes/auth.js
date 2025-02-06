@@ -2,6 +2,8 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
+const { protect } = require("../middleware/authMiddleware");
+
 //const sendVerificationEmail = require("../utils/sendEmail");
 
 const router = express.Router();
@@ -77,6 +79,20 @@ router.post("/login", async (req, res) => {
     }
 })
 
+router.get("/users", protect, async (req, res) => {
+    try {
+        const users = await User.find({}, "name _id email");
+
+        if (!users || users.length === 0) {
+            return res.status(200).json([]);
+        }
+
+        res.json(users);
+    } catch (error) {
+        console.error(err);
+        res.status(500).json({ message: "Server error", error: err.message })
+    }
+})
 
 
 module.exports = router;

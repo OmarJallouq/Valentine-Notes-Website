@@ -13,11 +13,13 @@ const protect = async (req, res, next) => {
         req.user = await User.findById(decoded.userId).select("-password");
 
         if (!req.user) {
-            res.status(401).json({ message: "User not found" });
+            return res.status(401).json({ message: "User not found" });
         }
         next();
     } catch (err) {
-        res.status(401).json({ message: "Invalid token" });
+        if (!res.headersSent) {
+            return res.status(401).json({ message: "Invalid token" });
+        }
     }
 }
 

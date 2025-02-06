@@ -6,7 +6,7 @@ const Message = require("../models/Message");
 const sendMessage = async (req, res) => {
     try {
         const { receiverId, content, anonymous } = req.body;
-
+        console.log("Received body:", req.body);
         if (!receiverId || !content) {
             return res.status(400).json({ message: "Receiver and messages content required." })
         }

@@ -1,3 +1,16 @@
-export default function SendMessage() {
-  return <h1 className="text-center text-2xl mt-10">Send Message Page</h1>;
+"use client";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+export default function SendMessagePage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      alert("You must be logged in to access this page!");
+      router.push("/login");
+    }
+  }, []);
+
+  return <h1 className="text-white">Send a Message Page</h1>;
 }

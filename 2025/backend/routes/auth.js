@@ -43,7 +43,9 @@ router.post("/signup", async (req, res) => {
         user.hasAccount = true;
         await user.save();
 
-        return res.json({ message: "Account created!" });
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: "7d" })
+
+        return res.json({ message: "Account created!", token });
     } catch (err) {
         return res.status(400).json({ message: "Server error!" });
     }
@@ -55,7 +57,13 @@ router.post("/login", async (req, res) => {
         const { email, password } = req.body;
         const user = await User.findOne({ email });
 
-        if (!user || !user.hasAccount) return res.status(400).json({ message: "Invalid credentials!" });
+        if (!user) return res.status(400).json({ message: "Email not found!" });
+
+        if (!password) {
+            return res.json({ hasAccount: user.hasAccount, valid: true });
+        }
+
+        if (!user.hasAccount) return res.status(400).json({ message: "Account not set up!", hasAccount: false });
 
         // Check password
         const isMatch = await bcrypt.compare(password, user.password);
@@ -68,5 +76,7 @@ router.post("/login", async (req, res) => {
         return res.status(500).json({ message: "Server error!" });
     }
 })
+
+
 
 module.exports = router;

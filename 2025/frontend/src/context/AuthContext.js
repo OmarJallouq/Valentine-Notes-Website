@@ -28,7 +28,10 @@ export function AuthProvider({ children }) {
     const login = (token) => {
         localStorage.setItem("token", token);
         setIsLoggedIn(true);
-        router.push("/send-message");
+
+        if (pathname === '/inbox') router.push('/inbox');
+        else if (pathname === '/') router.push('/');
+        else router.push("/send-message");
     };
 
     const logout = () => {

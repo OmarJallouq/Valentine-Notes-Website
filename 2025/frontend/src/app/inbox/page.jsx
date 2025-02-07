@@ -32,7 +32,7 @@ export default function InboxPage() {
 
   const updateCountdown = () => {
     const now = new Date();
-    const valentinesDay = new Date(now.getFullYear(), 1, 14, 0, 0, 0);
+    const valentinesDay = new Date(now.getFullYear(), 0, 14, 0, 0, 0);
 
     if (now > valentinesDay) {
       setCountdown(null);

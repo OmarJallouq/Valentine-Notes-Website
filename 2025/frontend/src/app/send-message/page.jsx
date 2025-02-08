@@ -46,13 +46,11 @@ export default function SendMessagePage() {
       toast.error("Message and recipient are required!");
       return;
     }
-    console.log(recipient, " ", message, " ", anonymous);
     const body = JSON.stringify({
       receiverId: recipient,
       content: message,
       anonymous,
     });
-    console.log(body);
     try {
       const token = localStorage.getItem("token");
       const res = await fetch(`${backendURL}/api/messages/send`, {

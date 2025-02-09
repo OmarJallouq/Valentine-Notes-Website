@@ -53,7 +53,7 @@ export default function AuthPage() {
 
   const checkEmail = async () => {
     if (!email) {
-      alert("You must enter an email");
+      toast.error("You must enter an email!");
       return;
     }
 
@@ -69,14 +69,14 @@ export default function AuthPage() {
 
       if (data.hasAccount) {
         setIsSignup(false);
-        alert("This email already has an account!");
+        toast.error("This email already has an account!");
         return;
       }
 
       setEmailValid(true);
-      alert("Email is valid! You can now enter your password.");
+      toast.success("Email is valid! You can now enter your password.");
     } catch (err) {
-      alert(err.message);
+      toast.error(err.message);
       setEmailValid(false);
     }
   };

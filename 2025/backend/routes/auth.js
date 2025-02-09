@@ -37,7 +37,7 @@ router.post("/signup", async (req, res) => {
         const { email, password } = req.body;
         let user = await User.findOne({ email });
 
-        if (!user) return res.status(400).json({ message: "Email doesn't exist!" });
+        if (!user) return res.status(400).json({ message: "Email invalid (Please use your bocconi email!)" });
         if (user.hasAccount) return res.status(400).json({ message: "Account already exists!" });
 
         // Hash password and update user
@@ -59,7 +59,7 @@ router.post("/login", async (req, res) => {
         const { email, password } = req.body;
         const user = await User.findOne({ email });
 
-        if (!user) return res.status(400).json({ message: "Email not found!" });
+        if (!user) return res.status(400).json({ message: "Email not found! (Please use your bocconi email!)" });
 
         if (!password) {
             return res.json({ hasAccount: user.hasAccount, valid: true });

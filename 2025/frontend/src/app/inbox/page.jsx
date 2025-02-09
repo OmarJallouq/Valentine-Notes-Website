@@ -23,7 +23,6 @@ export default function InboxPage() {
       });
 
       const data = await res.json();
-      if (!Array.isArray(data)) throw new Error("Invalid response");
 
       setMessages(data);
     } catch (error) {
@@ -55,7 +54,7 @@ export default function InboxPage() {
 
   return (
     <ProtectedRoute>
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-purple-900 to-black text-white p-6">
+      <div className="min-h-screen flex flex-col items-center justify-center text-white p-6">
         <div className="w-full max-w-4xl text-center">
           <h1 className="text-3xl font-bold mb-2">💌 Your Inbox</h1>
 

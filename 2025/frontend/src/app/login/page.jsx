@@ -87,7 +87,7 @@ export default function AuthPage() {
   };
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-purple-900 to-black text-white">
+    <main className="flex flex-col items-center justify-center min-h-screen text-white">
       <div className="bg-black 30 p-8 rounded-lg shadow-lg w-full max-w-md">
         <h1 className="text-2xl font-bold text-center mb-4">
           {isSignup ? "Sign Up" : "Login"}

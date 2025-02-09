@@ -1,7 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { useAuth } from "@/context/AuthContext";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { toast } from "react-toastify";
@@ -26,10 +24,6 @@ export default function SendMessagePage() {
         });
 
         const data = await res.json();
-
-        if (!Array.isArray(data)) {
-          throw new Error(`Invalid response: ${JSON.stringify(data)}`);
-        }
 
         setStudents(data);
       } catch (error) {
@@ -79,7 +73,7 @@ export default function SendMessagePage() {
 
   return (
     <ProtectedRoute>
-      <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-purple-900 to-black text-white p-6">
+      <main className="flex flex-col items-center justify-center min-h-screen text-white p-6">
         <div className="bg-black/30 p-8 rounded-lg shadow-lg w-full max-w-md">
           <h1 className="text-2xl font-bold text-center mb-4">
             Send a Message 💌

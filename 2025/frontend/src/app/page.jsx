@@ -20,7 +20,7 @@ export default function Landing() {
           <motion.div
             key="preload"
             initial={{ position: 3, scale: 1, opacity: 1 }}
-            animate={{ scale: 1.2, opacity: 1 }}
+            animate={{ scale: 1.2, opacity: 1, y: -25 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
             className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black"
@@ -56,8 +56,10 @@ export default function Landing() {
                 SEND ANNONYMOUS VALENTINES!
               </h1>
               <p className="mt-4 text-lg max-w-lg">
-                Write heartfelt (or hilarious) messages to your classmates.
-                They'll be delivered on Valentine's Day!
+                Cupid is back for a little BAI tradition :) Time to send some
+                Valentines - make your friends and collegues smile on the day of
+                love by sending an anonymous (or not) digital letter. <br />
+                What are you waiting for? Send a message now!
               </p>
               <div className="mt-6 flex gap-4">
                 <Link

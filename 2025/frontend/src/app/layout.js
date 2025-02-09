@@ -14,7 +14,7 @@ export const metadata = {
   title: "Valentine's App",
   description: "Send and receive anonymous messages!",
   icons: {
-    icon: "/heart.ico"
+    icon: "/favicon.ico"
   }
 };
 

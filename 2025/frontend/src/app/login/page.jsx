@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 
 export default function AuthPage() {
@@ -12,8 +11,6 @@ export default function AuthPage() {
   const [password, setPassword] = useState("");
   const [emailValid, setEmailValid] = useState(false);
   const { login } = useAuth();
-
-  const router = useRouter();
 
   const backendURL =
     process.env.NODE_ENV == "production"
@@ -52,6 +49,8 @@ export default function AuthPage() {
   };
 
   const checkEmail = async () => {
+    console.log("Backend URL:", process.env.NEXT_PUBLIC_BACKEND_URL);
+
     if (!email) {
       toast.error("You must enter an email!");
       return;

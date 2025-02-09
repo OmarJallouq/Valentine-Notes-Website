@@ -2,10 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background: radial-gradient(circle, rgba(24, 9, 82, 1) 0%, rgba(18, 3, 36, 1) 100%);
+    background: linear-gradient(to bottom, #6a0dad, #000);
+    background-attachment: fixed;
+    background-size: cover, cover;
+    background-repeat: no-repeat, no-repeat;
+    background-blend-mode: overlay;
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: theme("fontFamily.barriecito");
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("/starsBackground.png") center/cover no-repeat;
+    opacity: 0.4;
+    z-index: -1;
+    will-change: transform, opacity;
 }
 
 .bg-gray-900 {

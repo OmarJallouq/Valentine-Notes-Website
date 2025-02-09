@@ -1,31 +1,30 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Barriecito } from "next/font/google";
 import "./styles/globals.css";
 import Navbar from "../components/Navbar"
 import { Bounce, ToastContainer } from "react-toastify";
 import { AuthProvider } from "@/context/AuthContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const barriecito = Barriecito({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-barriecito",
 });
 
 export const metadata = {
   title: "Valentine's App",
   description: "Send and receive anonymous messages!",
+  icons: {
+    icon: "/heart.ico"
+  }
 };
 
 export default function RootLayout({ children }) {
   return (
-    <AuthProvider>
-      <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
+    <html lang="en">
+      <body
+        className={`${barriecito.variable} relative antialiased`}
+      >
+        <AuthProvider>
           <ToastContainer
             position="bottom-right"
             autoClose={5000}
@@ -41,8 +40,8 @@ export default function RootLayout({ children }) {
           />
           <Navbar />
           {children}
-        </body>
-      </html>
-    </AuthProvider>
+        </AuthProvider>
+      </body>
+    </html>
   );
 }

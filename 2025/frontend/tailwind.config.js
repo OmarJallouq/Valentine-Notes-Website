@@ -1,3 +1,5 @@
+const { Barriecito } = require('next/font/google');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	darkMode: ["class"],
@@ -8,6 +10,9 @@ module.exports = {
 
 	theme: {
 		extend: {
+			fontFamily: {
+				barriecito: "var(--font-barriecito)",
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',

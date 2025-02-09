@@ -49,8 +49,6 @@ export default function AuthPage() {
   };
 
   const checkEmail = async () => {
-    console.log("Backend URL:", backendURL);
-
     if (!email) {
       toast.error("You must enter an email!");
       return;

@@ -13,8 +13,17 @@ connectDB();
 
 // Middleware
 app.use(express.json());
-app.use(cors())
+const allowedOrigins = [
+    "https://valentine-notes-website-fe5gs8xv3-omarjallouqs-projects.vercel.app",
+    "https://valentine-notes-website.vercel.app" // Add your final production URL
+];
 // app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
+app.use(
+    cors({
+        origin: allowedOrigins,
+        credentials: true, // Allows cookies & authorization headers
+    })
+);
 
 // Routes
 app.use("/api/auth", authRoutes);

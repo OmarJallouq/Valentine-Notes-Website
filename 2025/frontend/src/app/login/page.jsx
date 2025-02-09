@@ -14,7 +14,7 @@ export default function AuthPage() {
 
   const backendURL =
     process.env.NODE_ENV == "production"
-      ? process.env.NEXT_BACKEND_URL
+      ? process.env.NEXT_PUBLIC_BACKEND_URL
       : "http://localhost:4000";
 
   const handleSubmit = async (e) => {
@@ -49,7 +49,7 @@ export default function AuthPage() {
   };
 
   const checkEmail = async () => {
-    console.log("Backend URL:", process.env.NEXT_PUBLIC_BACKEND_URL);
+    console.log("Backend URL:", process.env.NEXT_PUBLIC_PUBLIC_BACKEND_URL);
 
     if (!email) {
       toast.error("You must enter an email!");

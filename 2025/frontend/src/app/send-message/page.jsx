@@ -10,7 +10,10 @@ export default function SendMessagePage() {
   const [recipient, setRecipient] = useState("");
   const [anonymous, setAnonymous] = useState(false);
   const [students, setStudents] = useState([]);
-  const backendURL = process.env.NEXT_BACKEND_URL || "http://localhost:4000";
+  const backendURL =
+    process.env.NODE_ENV === "production"
+      ? process.env.NEXT_PUBLIC_BACKEND_URL
+      : "http://localhost:4000";
 
   useEffect(() => {
     const fetchStudents = async () => {

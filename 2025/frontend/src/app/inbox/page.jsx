@@ -11,7 +11,7 @@ export default function InboxPage() {
   const [countdown, setCountdown] = useState("");
   const backendURL =
     process.env.NODE_ENV === "production"
-      ? process.env.NEXT_BACKEND_URL
+      ? process.env.NEXT_PUBLIC_BACKEND_URL
       : "http://localhost:4000";
 
   const fetchMessages = async () => {

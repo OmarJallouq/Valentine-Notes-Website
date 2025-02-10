@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function InboxPage() {
   const router = useRouter();
   const [messages, setMessages] = useState([]);
-  const [countdown, setCountdown] = useState("");
+  const [countdown, setCountdown] = useState(false);
   const backendURL =
     process.env.NODE_ENV === "production"
       ? process.env.NEXT_PUBLIC_BACKEND_URL
@@ -30,24 +30,24 @@ export default function InboxPage() {
     }
   };
 
-  const updateCountdown = () => {
-    const now = new Date();
-    const valentinesDay = new Date(now.getFullYear(), 1, 14, 0, 0, 0);
+  // const updateCountdown = () => {
+  //   const now = new Date();
+  //   const valentinesDay = new Date(now.getFullYear(), 1, 14, 0, 0, 0);
 
-    if (now > valentinesDay) {
-      setCountdown(null);
-    } else {
-      const diff = valentinesDay - now;
-      const hours = Math.floor(diff / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-      setCountdown(`${hours}h ${minutes}m ${seconds}s`);
-    }
-  };
+  //   if (now > valentinesDay) {
+  //     setCountdown(null);
+  //   } else {
+  //     const diff = valentinesDay - now;
+  //     const hours = Math.floor(diff / (1000 * 60 * 60));
+  //     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  //     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+  //     setCountdown(`${hours}h ${minutes}m ${seconds}s`);
+  //   }
+  // };
 
   useEffect(() => {
     fetchMessages();
-    updateCountdown();
+    // updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -58,13 +58,13 @@ export default function InboxPage() {
         <div className="w-full max-w-4xl text-center">
           <h1 className="text-3xl font-bold mb-2">💌 Your Inbox</h1>
 
-          {countdown && (
+          {!countdown && (
             <div className="text-xl mb-4">
-              Messages will be revealed in: {countdown}⏳
+              Tune back on Valentine's Day to see who sent you a message!
             </div>
           )}
         </div>
-        {!countdown && (
+        {countdown && (
           <>
             <Button onClick={fetchMessages} className="mb-4">
               Refresh Messages

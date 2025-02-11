@@ -12,8 +12,8 @@ const app = express();
 connectDB();
 
 // Middleware
-app.use(express.json());
 const allowedOrigins = [
+    "http://localhost:3000",
     "https://valentine-notes-website-fe5gs8xv3-omarjallouqs-projects.vercel.app",
     "https://valentine-notes-website.vercel.app" // Add your final production URL
 ];
@@ -24,6 +24,8 @@ app.use(
         credentials: true, // Allows cookies & authorization headers
     })
 );
+
+app.use(express.json());
 
 // Routes
 app.use("/api/auth", authRoutes);

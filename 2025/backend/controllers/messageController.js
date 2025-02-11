@@ -1,4 +1,5 @@
 const Message = require("../models/Message");
+const User = require("../models/User");
 
 // @desc    Send a message
 // @route   POST /api/messages/send
@@ -6,6 +7,7 @@ const Message = require("../models/Message");
 const sendMessage = async (req, res) => {
     try {
         const { receiverId, content, anonymous } = req.body;
+        const sender = await User.findById(req.user._id);
 
         if (!receiverId || !content) {
             return res.status(400).json({ message: "Receiver and messages content required." })
@@ -14,10 +16,12 @@ const sendMessage = async (req, res) => {
         const message = await Message.create({
             senderId: req.user._id, //logged in User
             receiverId,
-            senderName: anonymous ? "Anonymous" : req.user.name,
+            senderName: (sender.isInvisible || anonymous) ? "Anonymous" : req.user.name,
             content,
-            anonymous,
+            anonymous: sender.isInvisible ? true : anonymous,
         });
+
+        console.log(message)
 
         res.status(201).json({ message: "Message send!", data: message });
     } catch (err) {

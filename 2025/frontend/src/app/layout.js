@@ -40,6 +40,9 @@ export default function RootLayout({ children }) {
           />
           <Navbar />
           {children}
+          <footer className="w-full text-center py-4 fixed bottom-0 text-gray-400 text-sm">
+            Made with Love, Omar and Velina
+          </footer>
         </AuthProvider>
       </body>
     </html>

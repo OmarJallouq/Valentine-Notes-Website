@@ -10,6 +10,8 @@ export default function SendMessagePage() {
   const [recipient, setRecipient] = useState("");
   const [anonymous, setAnonymous] = useState(false);
   const [students, setStudents] = useState([]);
+  const [isCooldown, setIsCooldown] = useState(false);
+
   const backendURL =
     process.env.NODE_ENV === "production"
       ? process.env.NEXT_PUBLIC_BACKEND_URL
@@ -39,6 +41,8 @@ export default function SendMessagePage() {
   }, []);
 
   const handleSendMessage = async () => {
+    if (isCooldown) return;
+
     if (!message || !recipient) {
       toast.error("Message and recipient are required!");
       return;
@@ -67,8 +71,10 @@ export default function SendMessagePage() {
       if (!res.ok) throw new Error(data.message || "Failed to send message");
 
       toast.success("Message sent successfully!");
+      setIsCooldown(true);
       setMessage("");
       setAnonymous(false);
+      setTimeout(() => setIsCooldown(false), 3000);
     } catch (error) {
       toast.error(error.message);
     }
@@ -117,7 +123,11 @@ export default function SendMessagePage() {
           </div>
 
           {/* Send Button */}
-          <Button onClick={handleSendMessage} className="w-full mt-4">
+          <Button
+            onClick={handleSendMessage}
+            disabled={isCooldown}
+            className="w-full mt-4"
+          >
             Send Message
           </Button>
         </div>

@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function InboxPage() {
   const router = useRouter();
   const [messages, setMessages] = useState([]);
-  const [countdown, setCountdown] = useState(false);
+  const [countdown, setCountdown] = useState(true);
   const backendURL =
     process.env.NODE_ENV === "production"
       ? process.env.NEXT_PUBLIC_BACKEND_URL
